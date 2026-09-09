@@ -151,7 +151,7 @@ export default function Navbar() {
           )}
         >
           <Link href="/" className="flex items-center gap-2.5">
-            <Image src="/images/logo7.png" alt="Heaps Lab" width={128} height={40} className="object-contain" />
+            <Image src={isWhite ? "/images/logo8.png" : "/images/logo7.png"} alt="Heaps Lab" width={128} height={40} className="object-contain" />
           </Link>
         </div>
 

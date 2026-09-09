@@ -10,7 +10,7 @@ const stack = [
 
 export default function TechStackSection() {
   return (
-    <section className="w-full py-16 md:py-20 bg-background overflow-hidden">
+    <section className="w-full pb-20 md:pb-28 bg-background overflow-hidden">
 
       {/* Headline */}
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0 text-center mb-10">

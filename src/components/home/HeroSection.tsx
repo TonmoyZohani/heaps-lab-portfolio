@@ -6,38 +6,60 @@ import { useEffect, useRef, useState } from "react";
 
 const videos = ["/videos/video1.mp4", "/videos/video2.mp4", "/videos/video3.mp4"];
 
-/* ── Cycling word animation ─────────────────────────────────────────── */
-function CyclingWord({ words }: { words: string[] }) {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
+/* ── Word-by-word reveal animation ──────────────────────────────────── */
+const WORDS = ["Solutions.", "Systems.", "Scale."];
+const WORD_INTERVAL = 700;   // ms between each word appearing
+const HOLD_DURATION = 300;   // ms to hold the full phrase before reset
+const FADE_DURATION = 200;   // ms for the whole-line fade-out
+
+function RevealWords() {
+  const [visibleCount, setVisibleCount] = useState(0);
+  const [fadingOut, setFadingOut] = useState(false);
 
   useEffect(() => {
-    const showDuration = 2000;  // how long each word stays
-    const fadeDuration = 400;   // matches the CSS transition
+    if (fadingOut) {
+      // wait for fade-out to finish, THEN reset count (no visible snap)
+      const t = setTimeout(() => {
+        setVisibleCount(0);
+        setFadingOut(false);
+      }, FADE_DURATION);
+      return () => clearTimeout(t);
+    }
 
-    const timer = setTimeout(() => {
-      // fade out
-      setVisible(false);
-      setTimeout(() => {
-        // swap word then fade in
-        setIndex((i) => (i + 1) % words.length);
-        setVisible(true);
-      }, fadeDuration);
-    }, showDuration);
+    if (visibleCount < WORDS.length) {
+      const t = setTimeout(() => setVisibleCount((n) => n + 1), WORD_INTERVAL);
+      return () => clearTimeout(t);
+    }
 
-    return () => clearTimeout(timer);
-  }, [index, words]);
+    // all words visible — hold, then start fade-out
+    const t = setTimeout(() => setFadingOut(true), HOLD_DURATION);
+    return () => clearTimeout(t);
+  }, [visibleCount, fadingOut]);
 
   return (
     <span
-      className="inline-block transition-all duration-400"
+      className="inline-flex flex-wrap justify-center gap-x-4"
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(12px)",
-        transition: "opacity 0.4s ease, transform 0.4s ease",
+        opacity: fadingOut ? 0 : 1,
+        transition: fadingOut ? `opacity ${FADE_DURATION}ms ease` : "none",
       }}
     >
-      {words[index]}
+      {WORDS.map((word, i) => (
+        <span
+          key={word}
+          style={{
+            display: "inline-block",
+            opacity: i < visibleCount ? 1 : 0,
+            transform: i < visibleCount ? "translateY(0)" : "translateY(14px)",
+            // only animate in — never animate the snap-back to hidden
+            transition: i < visibleCount
+              ? `opacity ${FADE_DURATION}ms ease, transform ${FADE_DURATION}ms ease`
+              : "none",
+          }}
+        >
+          {word}
+        </span>
+      ))}
     </span>
   );
 }
@@ -132,7 +154,7 @@ export default function HeroSection() {
         {/* Centered overlay text */}
         <div className="absolute inset-0 z-10 flex items-center justify-center text-white text-center px-8">
           <h2 className="font-bold tracking-tight drop-shadow-lg" style={{ fontSize: "clamp(2.5rem, 5.5vw, 6rem)" }}>
-            <CyclingWord words={["Solutions.", "Systems.", "Scale."]} />
+            <RevealWords />
           </h2>
         </div>
 

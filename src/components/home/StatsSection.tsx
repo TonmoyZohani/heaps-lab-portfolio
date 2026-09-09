@@ -60,7 +60,7 @@ function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
 
 export default function StatsSection() {
   return (
-    <section className="w-full bg-background py-20 md:py-28 relative overflow-hidden">
+    <section className="w-full bg-background pb-20 md:pb-28 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#E01F59]/5 to-transparent rounded-full blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-500/5 to-transparent rounded-full blur-3xl" />
