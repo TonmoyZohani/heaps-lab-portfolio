@@ -6,6 +6,42 @@ import { useEffect, useRef, useState } from "react";
 
 const videos = ["/videos/video1.mp4", "/videos/video2.mp4", "/videos/video3.mp4"];
 
+/* ── Cycling word animation ─────────────────────────────────────────── */
+function CyclingWord({ words }: { words: string[] }) {
+  const [index, setIndex] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    const showDuration = 2000;  // how long each word stays
+    const fadeDuration = 400;   // matches the CSS transition
+
+    const timer = setTimeout(() => {
+      // fade out
+      setVisible(false);
+      setTimeout(() => {
+        // swap word then fade in
+        setIndex((i) => (i + 1) % words.length);
+        setVisible(true);
+      }, fadeDuration);
+    }, showDuration);
+
+    return () => clearTimeout(timer);
+  }, [index, words]);
+
+  return (
+    <span
+      className="inline-block transition-all duration-400"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(12px)",
+        transition: "opacity 0.4s ease, transform 0.4s ease",
+      }}
+    >
+      {words[index]}
+    </span>
+  );
+}
+
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -95,8 +131,8 @@ export default function HeroSection() {
 
         {/* Centered overlay text */}
         <div className="absolute inset-0 z-10 flex items-center justify-center text-white text-center px-8">
-          <h2 className="font-bold tracking-tight drop-shadow-lg whitespace-nowrap" style={{ fontSize: "clamp(2.5rem, 5.5vw, 6rem)" }}>
-            Solutions. Systems. Scale.
+          <h2 className="font-bold tracking-tight drop-shadow-lg" style={{ fontSize: "clamp(2.5rem, 5.5vw, 6rem)" }}>
+            <CyclingWord words={["Solutions.", "Systems.", "Scale."]} />
           </h2>
         </div>
 

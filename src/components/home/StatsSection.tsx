@@ -2,24 +2,24 @@ import { Globe, ArrowRight } from "lucide-react";
 
 const stats = [
   {
-    number: "86+",
+    number: "10+",
     title: "Successful Projects",
     description:
-      "Delivering tangible results across UI/UX design, custom development, and brand strategy.",
+      "Building high-quality digital products that solve real business challenges and drive meaningful outcomes.",
     icon: "📊",
   },
   {
     number: "99%",
     title: "Client Satisfaction",
     description:
-      "A commitment to 5-star solutions and a client-first partnership in every project.",
+      "Creating lasting partnerships through reliable delivery, clear communication, and a strong focus on client goals.",
     icon: "⭐",
   },
   {
-    number: "25+",
+    number: "3+",
     title: "Global Clients",
     description:
-      "Empowering businesses with digital solutions across a wide international reach.",
+      "Helping businesses across different markets turn ideas into impactful digital experiences and solutions.",
     icon: "🌍",
   },
 ];

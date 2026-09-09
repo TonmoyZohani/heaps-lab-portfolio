@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Phone } from "lucide-react";
 
 const services = [
   "Custom Software Development",
@@ -77,6 +78,47 @@ export default function ContactSection() {
               </div>
             </div>
 
+            {/* Contact details */}
+            <div className="grid grid-cols-2 gap-6">
+
+              {/* US */}
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5" aria-label="United States">🇺🇸</span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground/70">United States</p>
+                  <p className="text-sm text-foreground/50 leading-snug">
+                    Fairfield, Bristol, CT 06010<br />Connecticut, USA
+                  </p>
+                  <a
+                    href="tel:+16469601891"
+                    className="text-sm text-[#E01F59] font-medium mt-0.5 inline-flex items-center gap-1 hover:underline"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-foreground" />
+                    +1 646-960-1891
+                  </a>
+                </div>
+              </div>
+
+              {/* BD */}
+              <div className="flex items-start gap-3">
+                <span className="text-xl mt-0.5" aria-label="Bangladesh">🇧🇩</span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground/70">Bangladesh</p>
+                  <p className="text-sm text-foreground/50 leading-snug">
+                    Mohammadpur, Dhaka - 1207
+                  </p>
+                  <a
+                    href="tel:+8801956380776"
+                    className="text-sm text-[#E01F59] font-medium mt-0.5 inline-flex items-center gap-1 hover:underline"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-foreground" />
+                    +88 019 56 38 07 76
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
             {/* Book a call */}
             <p className="text-sm text-foreground/50">
               Not interested in filling out a form?{" "}
@@ -84,7 +126,7 @@ export default function ContactSection() {
                 href="/contact"
                 className="text-[#E01F59] font-semibold hover:underline"
               >
-                Book a Call Directly →
+                Book a 30 Mins Session →
               </Link>
             </p>
           </div>

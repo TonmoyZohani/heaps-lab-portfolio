@@ -9,8 +9,8 @@ const leftProjects = [
     image: "/images/work11.png",
   },
   {
-    name: "Cybersecurity & AI Industry (©2026)",
-    type: "Web Design & Development",
+    name: "Bag Bank (©2026)",
+    type: "E-Commerce Website",
     image: "/images/work12.png",
   },
 ];
