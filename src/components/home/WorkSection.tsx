@@ -11,7 +11,7 @@ const leftProjects = [
   {
     name: "Cybersecurity & AI Industry (©2026)",
     type: "Web Design & Development",
-    image: "/images/work11.png",
+    image: "/images/work12.png",
   },
 ];
 
