@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -12,30 +13,30 @@ const serviceGroups = [
   {
     heading: "Development",
     items: [
-      { label: "Custom Software Development", href: "/services/custom-software-development" },
-      { label: "Web Development", href: "/services/web-development" },
-      { label: "Mobile App Development", href: "/services/mobile-app-development" },
-      { label: "SaaS Development", href: "/services/saas-development" },
-      { label: "AI & Automation", href: "/services/ai-automation" },
-      { label: "Cloud & DevOps", href: "/services/cloud-devops" },
-      { label: "E-commerce Solutions", href: "/services/ecommerce-solutions" },
+      { label: "Custom Software Development", href: "/services/development#custom-software-development" },
+      { label: "Web Development", href: "/services/development#web-development" },
+      { label: "Mobile App Development", href: "/services/development#mobile-app-development" },
+      { label: "SaaS Development", href: "/services/development#saas-development" },
+      { label: "AI & Automation", href: "/services/development#ai-automation" },
+      { label: "Cloud & DevOps", href: "/services/development#cloud-devops" },
+      { label: "E-commerce Solutions", href: "/services/development#ecommerce-solutions" },
     ],
   },
   {
     heading: "Design",
     items: [
-      { label: "UI/UX Design", href: "/services/ui-ux-design" },
-      { label: "Brand Identity", href: "/services/brand-identity" },
-      { label: "Graphic Design", href: "/services/graphic-design" },
-      { label: "Digital Product Design", href: "/services/digital-product-design" },
+      { label: "UI/UX Design", href: "/services/design#ui-ux-design" },
+      { label: "Brand Identity", href: "/services/design#brand-identity" },
+      { label: "Graphic Design", href: "/services/design#graphic-design" },
+      { label: "Digital Product Design", href: "/services/design#digital-product-design" },
     ],
   },
   {
     heading: "Marketing",
     items: [
-      { label: "Digital Marketing", href: "/services/digital-marketing" },
-      { label: "SEO & Content", href: "/services/seo-content" },
-      { label: "Social Media Marketing", href: "/services/social-media-marketing" },
+      { label: "Digital Marketing", href: "/services/marketing#digital-marketing" },
+      { label: "SEO & Content", href: "/services/marketing#seo-content" },
+      { label: "Social Media Marketing", href: "/services/marketing#social-media-marketing" },
     ],
   },
 ];
@@ -43,7 +44,7 @@ const serviceGroups = [
 const navLinks = [
   { label: "Services", href: "/services", mega: true },
   { label: "Work", href: "/work" },
-  { label: "Insights", href: "/blog" },
+  { label: "Blogs", href: "/blog" },
   {
     label: "Agency",
     href: "/about",
@@ -60,9 +61,11 @@ const navLinks = [
 function DropdownItem({
   item,
   isWhite,
+  onNavigate,
 }: {
   item: { label: string; href: string; children: readonly { label: string; href: string }[] };
   isWhite: boolean;
+  onNavigate: () => void;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -94,7 +97,7 @@ function DropdownItem({
             <Link
               key={child.href}
               href={child.href}
-              onClick={() => setOpen(false)}
+              onClick={() => { setOpen(false); onNavigate(); }}
               className={cn(
                 "flex items-center justify-between px-5 py-3 text-sm font-medium text-foreground/65 hover:text-foreground hover:bg-[#F5F3F6] transition-colors",
                 i !== 0 && "border-t border-black/5"
@@ -115,8 +118,16 @@ export default function Navbar() {
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const pathname = usePathname();
 
   const isWhite = scrolled || megaOpen;
+
+  // Close everything on route change
+  useEffect(() => {
+    setMegaOpen(false);
+    setMobileOpen(false);
+    setMobileExpanded(null);
+  }, [pathname]);
 
   useEffect(() => {
     function onScroll() {
@@ -200,6 +211,7 @@ export default function Navbar() {
                     <DropdownItem
                       item={item as { label: string; href: string; children: readonly { label: string; href: string }[] }}
                       isWhite={isWhite}
+                      onNavigate={() => setMegaOpen(false)}
                     />
                   </li>
                 );
@@ -304,12 +316,14 @@ export default function Navbar() {
                 </p>
               </div>
               <div className="flex flex-col gap-2">
-                <Link href="/services" className="text-sm text-foreground/60 hover:text-foreground transition-colors">All Services</Link>
-                <Link href="/work" className="text-sm text-foreground/60 hover:text-foreground transition-colors">Case Studies</Link>
-                <Link href="/contact" className="text-sm text-foreground/60 hover:text-foreground transition-colors">Get a Quote</Link>
+                <Link href="/services" onClick={() => setMegaOpen(false)} className="text-sm text-foreground/60 hover:text-foreground transition-colors">All Services</Link>
+                <Link href="/services/development" onClick={() => setMegaOpen(false)} className="text-sm text-foreground/60 hover:text-foreground transition-colors">Development</Link>
+                <Link href="/services/design" onClick={() => setMegaOpen(false)} className="text-sm text-foreground/60 hover:text-foreground transition-colors">Design</Link>
+                <Link href="/services/marketing" onClick={() => setMegaOpen(false)} className="text-sm text-foreground/60 hover:text-foreground transition-colors">Marketing</Link>
+                <Link href="/contact" onClick={() => setMegaOpen(false)} className="text-sm text-foreground/60 hover:text-foreground transition-colors">Get a Quote</Link>
               </div>
               <div className="mt-auto pt-4 border-t border-black/5">
-                <Link href="/services" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E01F59] hover:gap-2.5 transition-all">
+                <Link href="/services" onClick={() => setMegaOpen(false)} className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#E01F59] hover:gap-2.5 transition-all">
                   All Services <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -326,7 +340,7 @@ export default function Navbar() {
                   <ul className="flex flex-col gap-1">
                     {group.items.map((svc) => (
                       <li key={svc.href}>
-                        <Link href={svc.href} className="text-sm text-foreground/65 hover:text-foreground transition-colors inline-block py-1">
+                        <Link href={svc.href} onClick={() => setMegaOpen(false)} className="text-sm text-foreground/65 hover:text-foreground transition-colors inline-block py-1">
                           {svc.label}
                         </Link>
                       </li>

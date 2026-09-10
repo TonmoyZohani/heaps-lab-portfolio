@@ -33,7 +33,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-[#E01F59]/5 blur-3xl -translate-y-1/2 translate-x-1/4" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-white/3 blur-3xl" />
 
-        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="relative max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center gap-2 text-sm text-white/40 mb-8">
@@ -87,7 +87,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── WHAT WE DO */}
       <section className="w-full py-20 md:py-28 bg-background">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">What We Do</p>
@@ -110,7 +110,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── OFFERINGS */}
       <section className="w-full py-20 md:py-28 bg-[#F7F5F9]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">Our Offerings</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">What&apos;s included.</h2>
@@ -131,7 +131,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── PROCESS */}
       <section className="w-full py-20 md:py-28 bg-background">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">How We Work</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">Our process.</h2>
@@ -150,7 +150,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── TECH STACK */}
       <section className="w-full py-20 md:py-28 bg-[#070C10]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">Tools & Technologies</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">The stack we use.</h2>
@@ -167,7 +167,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── WHY US */}
       <section className="w-full py-20 md:py-28 bg-background">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">Why Heaps Lab</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">What makes us different.</h2>
@@ -188,7 +188,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── RELATED SERVICES */}
       <section className="w-full py-20 md:py-28 bg-[#F7F5F9]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
           <div className="mb-12">
             <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">Explore More</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight">Other services.</h2>
@@ -215,7 +215,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
 
       {/* ── CTA */}
       <section className="w-full py-20 md:py-28 bg-[#070C10]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-16 text-center">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0 text-center">
           <p className="text-sm font-bold tracking-widest uppercase text-[#E01F59] mb-4">Ready to start?</p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight mb-6 max-w-3xl mx-auto">
             Let&apos;s build something great together.

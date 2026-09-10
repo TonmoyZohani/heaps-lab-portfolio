@@ -7,6 +7,7 @@ import type { LucideIcon } from "lucide-react";
 
 export interface ServiceData {
   slug: string;
+  category: "development" | "design" | "marketing";
   title: string;
   tagline: string;
   heroDescription: string;
@@ -27,6 +28,7 @@ export interface ServiceData {
 export const servicesData: ServiceData[] = [
   {
     slug: "custom-software-development",
+    category: "development",
     title: "Custom Software Development",
     tagline: "Software built exactly for the way you work.",
     heroDescription: "Off-the-shelf tools can only take you so far. We design and engineer bespoke software that fits your workflows, scales with your growth, and gives your business a genuine competitive edge.",
@@ -74,6 +76,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "web-development",
+    category: "development",
     title: "Web Development",
     tagline: "Fast, beautiful websites that actually convert.",
     heroDescription: "Your website is your most important sales tool. We build performant, accessible, and visually sharp web experiences that reflect your brand and drive real business outcomes.",
@@ -121,6 +124,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "mobile-app-development",
+    category: "development",
     title: "Mobile App Development",
     tagline: "Apps your users will actually want to open.",
     heroDescription: "From concept to App Store, we build iOS and Android apps that are fast, intuitive, and built to retain users — not just attract them.",
@@ -168,6 +172,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "saas-development",
+    category: "development",
     title: "SaaS Development",
     tagline: "Build the product your market is waiting for.",
     heroDescription: "We help founders and product teams design, build, and scale SaaS products — from zero to launch, and from launch to product-market fit.",
@@ -215,6 +220,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "ui-ux-design",
+    category: "design",
     title: "UI/UX Design",
     tagline: "Interfaces that feel obvious to use.",
     heroDescription: "Great design isn't decoration — it's the difference between a product people love and one they abandon. We design digital experiences that are intuitive, accessible, and unmistakably on-brand.",
@@ -262,6 +268,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "brand-identity",
+    category: "design",
     title: "Brand Identity",
     tagline: "A brand that people remember — and trust.",
     heroDescription: "Your brand is more than a logo. It's the sum of every impression you make. We build cohesive brand identities that communicate who you are, what you stand for, and why you're different.",
@@ -309,6 +316,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "graphic-design",
+    category: "design",
     title: "Graphic Design",
     tagline: "Visual communication that stops the scroll.",
     heroDescription: "From social assets to pitch decks to print collateral, we create graphics that communicate your message clearly, look unmistakably on-brand, and hold up at any size.",
@@ -355,6 +363,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "digital-product-design",
+    category: "design",
     title: "Digital Product Design",
     tagline: "Products people can't stop using.",
     heroDescription: "We design digital products — dashboards, tools, platforms, and applications — that are intuitive, efficient, and genuinely enjoyable to use.",
@@ -402,6 +411,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "digital-marketing",
+    category: "marketing",
     title: "Digital Marketing",
     tagline: "Marketing that earns its budget.",
     heroDescription: "We plan and execute digital marketing strategies that drive qualified traffic, generate leads, and build brand equity — with clear attribution at every step.",
@@ -449,6 +459,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "seo-content",
+    category: "marketing",
     title: "SEO & Content",
     tagline: "Rank for the terms that actually drive revenue.",
     heroDescription: "We combine technical SEO rigour with content strategy to build sustainable organic growth — the kind that compounds over time and doesn't disappear when you pause your ad spend.",
@@ -496,6 +507,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "social-media-marketing",
+    category: "marketing",
     title: "Social Media Marketing",
     tagline: "A social presence worth following.",
     heroDescription: "We build and manage social media strategies that grow engaged audiences, build brand credibility, and drive real business outcomes — not just vanity metrics.",
@@ -543,6 +555,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "ecommerce-solutions",
+    category: "development",
     title: "E-commerce Solutions",
     tagline: "Online stores built to convert.",
     heroDescription: "We design and build e-commerce experiences that make buying easy, build trust, and maximise revenue — from your first store to a full enterprise commerce platform.",
@@ -590,6 +603,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "ai-automation",
+    category: "development",
     title: "AI & Automation",
     tagline: "Work smarter. Scale without headcount.",
     heroDescription: "We help businesses leverage AI and intelligent automation to eliminate repetitive work, surface better insights, and build capabilities that would otherwise require a much larger team.",
@@ -637,6 +651,7 @@ export const servicesData: ServiceData[] = [
   },
   {
     slug: "cloud-devops",
+    category: "development",
     title: "Cloud & DevOps",
     tagline: "Infrastructure that scales. Deployments that don't break.",
     heroDescription: "We design and manage cloud infrastructure and DevOps pipelines that are secure, cost-efficient, and built to scale — so your engineering team can ship with confidence.",
@@ -691,3 +706,24 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 export function getAllServiceSlugs(): string[] {
   return servicesData.map((s) => s.slug);
 }
+
+export function getServicesByCategory(category: ServiceData["category"]): ServiceData[] {
+  return servicesData.filter((s) => s.category === category);
+}
+
+export type ServiceCategory = "development" | "design" | "marketing";
+
+export const categoryMeta: Record<ServiceCategory, { label: string; description: string }> = {
+  development: {
+    label: "Development",
+    description: "From custom software to mobile apps, SaaS platforms to cloud infrastructure — we engineer digital products that scale.",
+  },
+  design: {
+    label: "Design",
+    description: "UI/UX, brand identity, graphic design, and digital product design — we craft experiences that are intuitive, beautiful, and on-brand.",
+  },
+  marketing: {
+    label: "Marketing",
+    description: "Digital marketing, SEO, social media — we build strategies that drive qualified traffic, generate leads, and grow your brand.",
+  },
+};
