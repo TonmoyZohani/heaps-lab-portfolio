@@ -121,12 +121,14 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const isWhite = scrolled || megaOpen;
+  const isHome = pathname === "/";
 
-  // Close everything on route change
+  // Close everything and reset scroll state on route change
   useEffect(() => {
     setMegaOpen(false);
     setMobileOpen(false);
     setMobileExpanded(null);
+    setScrolled(window.scrollY > 40);
   }, [pathname]);
 
   useEffect(() => {
@@ -150,15 +152,16 @@ export default function Navbar() {
       {/* ── Navbar bar ── */}
       <header
         className={cn(
-          "w-full h-[68px] flex transition-all duration-300",
-          isWhite ? "bg-white shadow-sm" : "bg-transparent"
+          "w-full h-[68px] flex transition-colors duration-200",
+          isWhite ? "bg-white" : "bg-transparent",
+          scrolled ? "shadow-sm" : ""
         )}
       >
         {/* LEFT ZONE */}
         <div
           className={cn(
-            "hidden lg:flex items-start pt-3 shrink-0 pl-8 xl:pl-18 pr-16 transition-all duration-300",
-            isWhite ? "bg-white w-[28%]" : "bg-[#070C10] w-[28%]"
+            "hidden lg:flex items-start pt-3 shrink-0 pl-8 xl:pl-18 pr-16 w-[28%] transition-colors duration-200",
+            isWhite ? "bg-white" : isHome ? "bg-[#070C10]" : "bg-transparent"
           )}
         >
           <Link href="/" className="flex items-center gap-2.5">

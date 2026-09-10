@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { ServiceData, ServiceCategory } from "@/lib/services-data";
-import { serviceIllustrations } from "./ServiceIllustrations";
 
 interface Props {
   category: ServiceCategory;
@@ -9,24 +8,10 @@ interface Props {
   meta: { label: string; description: string };
 }
 
-const cardColors: Record<ServiceCategory, string[]> = {
-  development: [
-    "bg-[#C4B5FD]", "bg-[#BAE6FD]", "bg-[#A7F3D0]",
-    "bg-[#FDE68A]", "bg-[#C4B5FD]", "bg-[#BAE6FD]", "bg-[#FDE68A]",
-  ],
-  design: [
-    "bg-[#C4B5FD]", "bg-[#FDE68A]", "bg-[#A7F3D0]", "bg-[#BFDBFE]",
-  ],
-  marketing: [
-    "bg-[#FDE68A]", "bg-[#A7F3D0]", "bg-[#BAE6FD]",
-  ],
-};
-
 export default function CategoryServicesPage({ category, services, meta }: Props) {
-  const colors = cardColors[category];
 
   return (
-    <main className="bg-background">
+    <main className="bg-background" style={{ backgroundImage: "linear-gradient(to bottom, #070C10 280px, transparent 280px)", backgroundRepeat: "no-repeat" }}>
 
       {/* ── HERO */}
       <section className="relative w-full bg-[#070C10] pt-[calc(68px+5rem)] pb-20 overflow-hidden">
@@ -46,44 +31,6 @@ export default function CategoryServicesPage({ category, services, meta }: Props
           <p className="text-base text-white/55 leading-relaxed max-w-2xl">
             {meta.description}
           </p>
-        </div>
-      </section>
-
-      {/* ── ILLUSTRATED CARD GRID */}
-      <section className="w-full py-20 md:py-28 bg-[#F7F5F9]">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {services.map((service, idx) => {
-              const Illustration = serviceIllustrations[service.slug];
-              const bg = colors[idx % colors.length];
-              return (
-                <a
-                  key={service.slug}
-                  href={`#${service.slug}`}
-                  className="flex flex-col gap-5 group cursor-pointer"
-                >
-                  {/* Card */}
-                  <div className={`relative w-full h-52 rounded-2xl ${bg} overflow-hidden`} aria-hidden="true">
-                    <span className="absolute top-4 left-5 text-xs font-bold text-foreground/40 tracking-widest z-10">
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                    <div className="absolute inset-0">
-                      {Illustration ? <Illustration /> : null}
-                    </div>
-                  </div>
-                  {/* Text */}
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-[#E01F59] transition-colors duration-200">
-                      {service.title}
-                    </h3>
-                    <p className="text-sm text-foreground/55 leading-relaxed">
-                      {service.heroDescription.slice(0, 110)}...
-                    </p>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
         </div>
       </section>
 
@@ -131,30 +78,30 @@ export default function CategoryServicesPage({ category, services, meta }: Props
               {/* Offerings */}
               {(() => {
                 const offeringGradients = [
-                  "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                  "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-                  "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-                  "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-                  "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-                  "linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)",
-                  "linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)",
-                  "linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%)",
-                  "linear-gradient(135deg, #fd7043 0%, #ff8a65 100%)",
+                  "linear-gradient(135deg, #5e3db8 0%, #8258e0 100%)",
+                  "linear-gradient(135deg, #be2980 0%, #e03464 100%)",
+                  "linear-gradient(135deg, #1a72b8 0%, #2096e0 100%)",
+                  "linear-gradient(135deg, #1a8466 0%, #20b088 100%)",
+                  "linear-gradient(135deg, #b84880 0%, #e07020 100%)",
+                  "linear-gradient(135deg, #6e3aaa 0%, #9e30b8 100%)",
+                  "linear-gradient(135deg, #a86040 0%, #d07e50 100%)",
+                  "linear-gradient(135deg, #2460b8 0%, #2e7ce0 100%)",
+                  "linear-gradient(135deg, #c44420 0%, #e85e30 100%)",
                 ];
                 return (
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
                     {service.offerings.map((offering, i) => (
                       <div
                         key={offering.title}
-                        className="relative rounded-2xl p-6 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                        className="relative rounded-2xl p-6 overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-xl flex flex-col min-h-[140px]"
                         style={{ background: offeringGradients[i % offeringGradients.length] }}
                       >
                         {/* Decorative blob */}
                         <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-white/15 pointer-events-none" />
                         <div className="absolute -top-4 -left-4 w-16 h-16 rounded-full bg-white/10 pointer-events-none" />
-                        <span className="relative text-xs font-bold text-white/50 mb-3 block tracking-widest">{String(i + 1).padStart(2, "0")}</span>
-                        <h4 className="relative text-sm font-bold text-white mb-2">{offering.title}</h4>
-                        <p className="relative text-xs text-white/75 leading-relaxed">{offering.description}</p>
+                        <span className="relative text-sm font-bold text-white/50 mb-3 block tracking-widest">{String(i + 1).padStart(2, "0")}</span>
+                        <h4 className="relative text-base font-bold text-white mb-2">{offering.title}</h4>
+                        <p className="relative text-sm text-white/75 leading-relaxed">{offering.description}</p>
                       </div>
                     ))}
                   </div>
@@ -162,15 +109,19 @@ export default function CategoryServicesPage({ category, services, meta }: Props
               })()}
 
               {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 mb-8">
-                {service.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1 rounded-full border border-black/10 bg-transparent text-xs font-medium text-foreground/50 hover:border-[#E01F59]/30 hover:text-foreground/80 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
+              <div className={`rounded-2xl p-7 mb-8 ${isEven ? "bg-[#F7F5F9]" : "bg-background"}`}>
+                <p className="text-xs font-bold tracking-widest uppercase text-foreground/40 mb-4">Tools & Technologies</p>
+                <div className="flex flex-wrap gap-2.5">
+                  {service.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white border border-black/8 text-sm font-semibold text-foreground/70 shadow-sm hover:border-[#E01F59]/30 hover:text-[#E01F59] hover:shadow-md transition-all duration-200"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#E01F59]/60 shrink-0" />
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* CTA */}
