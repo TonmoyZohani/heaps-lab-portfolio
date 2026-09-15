@@ -1,88 +1,96 @@
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
 
-const leftProjects = [
+const featuredProjects = [
   {
-    name: "Indian Claypit (©2025)",
-    type: "Web Application",
-    image: "/images/work14.png",
-    url: "https://indianclaypit.com",
-  },
-  {
-    name: "Bag Bank (©2026)",
-    type: "E-Commerce Website",
-    image: "/images/work12.png",
-    url: "https://bagbank.com",
-  },
-];
-
-const rightProjects = [
-  {
-    name: "Marexis (©2025)",
-    type: "Website",
+    name: "PX CRM — Customer Relationship Management",
+    type: "Software Development",
+    description:
+      "A modern CRM platform designed to streamline sales pipelines, client communication, and team productivity.",
     image: "/images/work7.png",
-    url: "https://marexis.com",
+    href: "#",
+    accentColor: "text-[#E01F59]",
+    badgeBg: "bg-[#E01F59]/10 text-[#E01F59]",
   },
   {
-    name: "SonnetGuru LMS (©2026)",
-    type: "Web Application",
+    name: "Hospital Management System (ERP)",
+    type: "Software Development",
+    description:
+      "A complete healthcare management solution with patient records, appointments, billing, and staff management.",
+    image: "/images/work13.png",
+    href: "#",
+    accentColor: "text-[#0EA5E9]",
+    badgeBg: "bg-[#0EA5E9]/10 text-[#0EA5E9]",
+  },
+  {
+    name: "School Management System (ERP)",
+    type: "Software Development",
+    description:
+      "An all-in-one school ERP covering admissions, attendance, results, and communication for modern institutions.",
     image: "/images/work8.png",
-    url: "https://sonnetguru.com",
+    href: "#",
+    accentColor: "text-[#E07820]",
+    badgeBg: "bg-[#E07820]/10 text-[#E07820]",
   },
 ];
 
-function ProjectCard({ project }: { project: { name: string; type: string; image: string; url: string } }) {
+function ProjectCard({
+  project,
+}: {
+  project: (typeof featuredProjects)[number];
+}) {
   return (
-    <div className="flex flex-col gap-3">
-      {/* Image container – group scoped here so hover only fires on the image */}
-      <div className="group relative w-full rounded-2xl overflow-hidden bg-[#f0edf2] shadow-md hover:shadow-xl transition-shadow duration-500">
+    <div className="group flex flex-col rounded-2xl overflow-hidden border border-foreground/8 bg-card shadow-sm hover:shadow-xl transition-shadow duration-500">
+      {/* Image */}
+      <div className="relative w-full aspect-[16/10] overflow-hidden bg-muted">
         <Image
           src={project.image}
           alt={project.name}
-          width={800}
-          height={600}
-          className="w-full h-auto object-contain transition-transform duration-700 group-hover:scale-105"
-          sizes="(max-width: 768px) 100vw, 40vw"
+          fill
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
-
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-        {/* Overlay content */}
-        <div className="absolute inset-0 flex flex-col justify-between p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          {/* Top: project info */}
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">
-              {project.type}
-            </p>
-            <h3 className="text-xl font-bold text-white leading-tight">
-              {project.name}
-            </h3>
-          </div>
-
-          {/* Bottom: Visit Site button */}
-          <div>
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black text-sm font-semibold hover:bg-[#E01F59] hover:text-white transition-colors duration-200"
-            >
-              Visit Site
-              <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
       </div>
 
-      {/* Text below image */}
-      <div className="px-1">
-        <h3 className="text-lg font-semibold text-foreground tracking-tight">
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-6 gap-3">
+        {/* Category badge */}
+        <span
+          className={`self-start text-xs font-semibold px-3 py-1 rounded-full ${project.badgeBg}`}
+        >
+          {project.type}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-lg font-bold text-foreground leading-snug">
           {project.name}
         </h3>
-        <p className="text-sm text-foreground/40 font-medium tracking-wide uppercase mt-0.5">
-          {project.type}
+
+        {/* Description */}
+        <p className="text-sm text-foreground/55 leading-relaxed flex-1">
+          {project.description}
         </p>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between pt-3 border-t border-foreground/8 mt-1">
+          <Link
+            href={project.href}
+            className={`inline-flex items-center gap-1.5 text-sm font-semibold ${project.accentColor} hover:gap-2.5 transition-all duration-200`}
+          >
+            View Case Study
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.name}`}
+            className="w-8 h-8 flex items-center justify-center rounded-lg text-foreground/30 hover:text-foreground hover:bg-foreground/5 transition-colors duration-200"
+          >
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
       </div>
     </div>
   );
@@ -91,39 +99,44 @@ function ProjectCard({ project }: { project: { name: string; type: string; image
 export default function WorkSection() {
   return (
     <section className="w-full bg-background py-20 md:py-28 relative overflow-hidden">
-      {/* Subtle background decoration */}
+      {/* Subtle background decorations */}
       <div className="absolute top-0 right-0 w-1/3 h-1/2 bg-gradient-to-l from-[#E01F59]/5 to-transparent rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-0 w-1/4 h-1/3 bg-gradient-to-r from-indigo-500/5 to-transparent rounded-full blur-3xl -z-10" />
 
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
-        <div className="mb-16">
+        {/* Header */}
+        <div className="mb-12">
           <p className="text-xl md:text-2xl font-bold text-[#71797E] mb-2">
-           Building what&apos;s next for ambitious businesses.
+            Building what&apos;s next for ambitious businesses.
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight whitespace-nowrap">
-            Explore the <span className="text-[#E01F59]">work we&apos;ve built.</span>
+          <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
+            Explore the{" "}
+            <span className="text-[#E01F59]">work we&apos;ve built.</span>
           </h2>
         </div>
 
-        {/* Staggered two-column grid with modern gap */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-          {/* Left column */}
-          <div className="flex flex-col gap-6">
-            {leftProjects.map((p, idx) => (
-              <div key={p.name} className="animate-fade-in-up" style={{ animationDelay: `${idx * 100}ms` }}>
-                <ProjectCard project={p} />
-              </div>
-            ))}
-          </div>
+        {/* 3-column project grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {featuredProjects.map((project, idx) => (
+            <div
+              key={project.name}
+              className="animate-fade-in-up"
+              style={{ animationDelay: `${idx * 100}ms` }}
+            >
+              <ProjectCard project={project} />
+            </div>
+          ))}
+        </div>
 
-          {/* Right column – pushed down, with subtle delay */}
-          <div className="flex flex-col gap-6 md:mt-20">
-            {rightProjects.map((p, idx) => (
-              <div key={p.name} className="animate-fade-in-up" style={{ animationDelay: `${(idx + 2) * 100}ms` }}>
-                <ProjectCard project={p} />
-              </div>
-            ))}
-          </div>
+        {/* CTA */}
+        <div className="mt-10 flex justify-center">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-foreground/20 text-foreground font-semibold text-sm hover:bg-[#E01F59] hover:text-white hover:border-[#E01F59] transition-all duration-300"
+          >
+            Show all our work
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </div>
     </section>
