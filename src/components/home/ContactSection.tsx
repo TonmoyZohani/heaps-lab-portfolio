@@ -140,7 +140,7 @@ export default function ContactSection() {
                 <div>
                   <p className="text-sm font-bold text-foreground">Bangladesh</p>
                   <p className="text-xs text-foreground/50 leading-snug mt-0.5">
-                    Moghbazar, Dhaka 1217
+                    Mohammadpur, Dhaka 1207
                   </p>
                   <a
                     href="tel:+8801956380776"

@@ -12,14 +12,14 @@ import { cn } from "@/lib/utils";
 const serviceGroups = [
   {
     heading: "Software Development",
-    href: "/services/software-development",
+    href: "/services/development",
     items: [
-      { label: "Custom Web Applications", href: "/services/software-development#custom-web-applications" },
-      { label: "SaaS Development", href: "/services/software-development#saas-development" },
-      { label: "Mobile App Development", href: "/services/software-development#mobile-app-development" },
-      { label: "ERP & CRM Development", href: "/services/software-development#erp-crm-development" },
-      { label: "API & Backend Development", href: "/services/software-development#api-backend-development" },
-      { label: "AI/ML Solutions", href: "/services/software-development#ai-ml-solutions" },
+      { label: "Custom Web Applications", href: "/services/development#custom-web-applications" },
+      { label: "SaaS Development", href: "/services/development#saas-development" },
+      { label: "Mobile App Development", href: "/services/development#mobile-app-development" },
+      { label: "ERP & CRM Development", href: "/services/development#erp-crm-development" },
+      { label: "API & Backend Development", href: "/services/development#api-backend-development" },
+      { label: "AI/ML Solutions", href: "/services/development#ai-ml-solutions" },
     ],
   },
   {
@@ -39,7 +39,7 @@ const serviceGroups = [
     href: "/services/marketing",
     items: [
       { label: "Digital Marketing", href: "/services/marketing#digital-marketing" },
-      { label: "Search Engine Optimization", href: "/services/marketing#seo" },
+      { label: "Search Engine Optimization", href: "/services/marketing#search-engine-optimization" },
       { label: "Social Media Marketing", href: "/services/marketing#social-media-marketing" },
       { label: "Content Marketing", href: "/services/marketing#content-marketing" },
       { label: "Performance Marketing", href: "/services/marketing#performance-marketing" },
@@ -50,6 +50,7 @@ const serviceGroups = [
 
 const navLinks = [
   { label: "Services", href: "/services", mega: true },
+  { label: "Industries", href: "/industries" },
   { label: "Work", href: "/work" },
   { label: "Blogs", href: "/blog" },
   {
