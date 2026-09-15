@@ -1,150 +1,177 @@
-import { Search, GitBranch, Palette, Code2, FlaskConical, Handshake } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-/* ─── Per-step SVG illustrations ─────────────────────────────────────────── */
+/* ─── SVG Illustrations ───────────────────────────────────────────────────── */
 
 function DiscoveryIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      {/* background blobs */}
-      <circle cx="230" cy="130" r="60" fill="white" fillOpacity="0.18" />
-      <circle cx="20" cy="20" r="35" fill="white" fillOpacity="0.12" />
-      {/* browser / dashboard card */}
-      <rect x="54" y="32" width="172" height="110" rx="10" fill="white" fillOpacity="0.5" />
-      <rect x="54" y="32" width="172" height="22" rx="10" fill="white" fillOpacity="0.7" />
-      <circle cx="70" cy="43" r="4" fill="#EF4444" fillOpacity="0.7" />
-      <circle cx="83" cy="43" r="4" fill="#FBBF24" fillOpacity="0.7" />
-      <circle cx="96" cy="43" r="4" fill="#22C55E" fillOpacity="0.7" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      {/* bg blobs */}
+      <circle cx="270" cy="150" r="80" fill="#7C3AED" fillOpacity="0.12" />
+      <circle cx="30" cy="30" r="50" fill="#7C3AED" fillOpacity="0.08" />
+      {/* browser card */}
+      <rect x="60" y="30" width="180" height="124" rx="12" fill="white" fillOpacity="0.7" />
+      <rect x="60" y="30" width="180" height="26" rx="12" fill="white" fillOpacity="0.9" />
+      <circle cx="78" cy="43" r="4.5" fill="#EF4444" fillOpacity="0.6" />
+      <circle cx="93" cy="43" r="4.5" fill="#FBBF24" fillOpacity="0.6" />
+      <circle cx="108" cy="43" r="4.5" fill="#22C55E" fillOpacity="0.6" />
+      {/* content lines */}
+      <rect x="76" y="68" width="80" height="7" rx="3" fill="#C4B5FD" fillOpacity="0.7" />
+      <rect x="76" y="82" width="120" height="5" rx="2" fill="#DDD6FE" fillOpacity="0.6" />
+      <rect x="76" y="93" width="100" height="5" rx="2" fill="#DDD6FE" fillOpacity="0.5" />
       {/* magnifier */}
-      <circle cx="158" cy="96" r="26" stroke="#7C3AED" strokeWidth="5" fill="white" fillOpacity="0.4" />
-      <line x1="178" y1="116" x2="196" y2="134" stroke="#7C3AED" strokeWidth="5" strokeLinecap="round" />
-      {/* data lines inside magnifier */}
-      <line x1="146" y1="88" x2="168" y2="88" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.6" />
-      <line x1="146" y1="96" x2="162" y2="96" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.4" />
-      <line x1="146" y1="104" x2="164" y2="104" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.3" />
+      <circle cx="188" cy="108" r="28" stroke="#7C3AED" strokeWidth="6" fill="white" fillOpacity="0.5" />
+      <line x1="210" y1="130" x2="228" y2="148" stroke="#7C3AED" strokeWidth="6" strokeLinecap="round" />
+      <line x1="178" y1="100" x2="198" y2="100" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.5" />
+      <line x1="178" y1="109" x2="194" y2="109" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.4" />
+      <line x1="178" y1="118" x2="196" y2="118" stroke="#7C3AED" strokeWidth="3" strokeLinecap="round" strokeOpacity="0.3" />
+      {/* sparkles */}
+      <circle cx="56" cy="110" r="5" fill="#A78BFA" fillOpacity="0.5" />
+      <circle cx="270" cy="55" r="7" fill="#C4B5FD" fillOpacity="0.5" />
+      <circle cx="42" cy="140" r="4" fill="#DDD6FE" fillOpacity="0.6" />
     </svg>
   );
 }
 
 function WireframeIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="240" cy="140" r="65" fill="white" fillOpacity="0.18" />
-      <circle cx="15" cy="15" r="30" fill="white" fillOpacity="0.12" />
-      {/* phone outline */}
-      <rect x="94" y="24" width="56" height="100" rx="8" fill="white" fillOpacity="0.45" stroke="white" strokeWidth="2" />
-      <rect x="100" y="38" width="44" height="62" rx="4" fill="white" fillOpacity="0.3" />
-      {/* wireframe blocks */}
-      <rect x="103" y="41" width="38" height="10" rx="2" fill="#059669" fillOpacity="0.5" />
-      <rect x="103" y="56" width="17" height="17" rx="2" fill="#059669" fillOpacity="0.35" />
-      <rect x="124" y="56" width="17" height="7" rx="2" fill="#059669" fillOpacity="0.35" />
-      <rect x="124" y="67" width="17" height="6" rx="2" fill="#059669" fillOpacity="0.25" />
-      <rect x="103" y="78" width="38" height="5" rx="2" fill="#059669" fillOpacity="0.3" />
-      <rect x="103" y="87" width="26" height="5" rx="2" fill="#059669" fillOpacity="0.2" />
-      <circle cx="122" cy="130" r="4" fill="#059669" fillOpacity="0.5" />
-      {/* arrows / flow */}
-      <path d="M60 70 Q80 50 90 70" stroke="white" strokeWidth="2" strokeDasharray="4 3" strokeLinecap="round" markerEnd="url(#arr)" />
-      <path d="M154 70 Q170 50 190 70" stroke="white" strokeWidth="2" strokeDasharray="4 3" strokeLinecap="round" />
-      <rect x="38" y="58" width="28" height="22" rx="5" fill="white" fillOpacity="0.35" />
-      <rect x="192" y="58" width="28" height="22" rx="5" fill="white" fillOpacity="0.35" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <circle cx="280" cy="155" r="80" fill="#059669" fillOpacity="0.10" />
+      <circle cx="20" cy="20" r="45" fill="#059669" fillOpacity="0.07" />
+      {/* phone */}
+      <rect x="118" y="20" width="60" height="110" rx="10" fill="white" fillOpacity="0.75" stroke="#6EE7B7" strokeWidth="1.5" />
+      <rect x="126" y="34" width="44" height="72" rx="5" fill="#D1FAE5" fillOpacity="0.6" />
+      <rect x="129" y="37" width="38" height="10" rx="2" fill="#059669" fillOpacity="0.4" />
+      <rect x="129" y="52" width="17" height="18" rx="2" fill="#059669" fillOpacity="0.3" />
+      <rect x="150" y="52" width="17" height="8" rx="2" fill="#059669" fillOpacity="0.3" />
+      <rect x="150" y="64" width="17" height="6" rx="2" fill="#059669" fillOpacity="0.2" />
+      <rect x="129" y="74" width="38" height="5" rx="2" fill="#059669" fillOpacity="0.25" />
+      <rect x="129" y="83" width="26" height="5" rx="2" fill="#059669" fillOpacity="0.2" />
+      <circle cx="148" cy="120" r="4.5" fill="#059669" fillOpacity="0.4" />
+      {/* flow connectors */}
+      <rect x="50" y="62" width="54" height="36" rx="8" fill="white" fillOpacity="0.55" stroke="#6EE7B7" strokeWidth="1.5" />
+      <rect x="218" y="62" width="54" height="36" rx="8" fill="white" fillOpacity="0.55" stroke="#6EE7B7" strokeWidth="1.5" />
+      <path d="M104 80 C108 80 112 80 118 80" stroke="#059669" strokeWidth="2" strokeDasharray="4 3" strokeLinecap="round" />
+      <path d="M178 80 C184 80 188 80 218 80" stroke="#059669" strokeWidth="2" strokeDasharray="4 3" strokeLinecap="round" />
+      {/* lines in side boxes */}
+      <rect x="58" y="74" width="36" height="5" rx="2" fill="#6EE7B7" fillOpacity="0.6" />
+      <rect x="58" y="83" width="26" height="5" rx="2" fill="#6EE7B7" fillOpacity="0.4" />
+      <rect x="226" y="74" width="36" height="5" rx="2" fill="#6EE7B7" fillOpacity="0.6" />
+      <rect x="226" y="83" width="26" height="5" rx="2" fill="#6EE7B7" fillOpacity="0.4" />
     </svg>
   );
 }
 
 function DesignIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="240" cy="130" r="65" fill="white" fillOpacity="0.18" />
-      <circle cx="20" cy="18" r="30" fill="white" fillOpacity="0.12" />
-      {/* palette shape */}
-      <ellipse cx="140" cy="82" rx="52" ry="46" fill="white" fillOpacity="0.4" />
-      <circle cx="120" cy="64" r="10" fill="#F87171" fillOpacity="0.75" />
-      <circle cx="148" cy="58" r="10" fill="#FBBF24" fillOpacity="0.75" />
-      <circle cx="168" cy="76" r="10" fill="#34D399" fillOpacity="0.75" />
-      <circle cx="162" cy="100" r="10" fill="#60A5FA" fillOpacity="0.75" />
-      <circle cx="138" cy="108" r="10" fill="#A78BFA" fillOpacity="0.75" />
-      <circle cx="116" cy="96" r="10" fill="#F472B6" fillOpacity="0.75" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <circle cx="270" cy="145" r="80" fill="#D97706" fillOpacity="0.10" />
+      <circle cx="25" cy="25" r="45" fill="#D97706" fillOpacity="0.07" />
+      {/* palette */}
+      <ellipse cx="155" cy="95" rx="62" ry="54" fill="white" fillOpacity="0.55" />
+      <circle cx="130" cy="74" r="12" fill="#F87171" fillOpacity="0.75" />
+      <circle cx="162" cy="67" r="12" fill="#FBBF24" fillOpacity="0.8" />
+      <circle cx="185" cy="87" r="12" fill="#34D399" fillOpacity="0.75" />
+      <circle cx="178" cy="115" r="12" fill="#60A5FA" fillOpacity="0.75" />
+      <circle cx="150" cy="124" r="12" fill="#A78BFA" fillOpacity="0.75" />
+      <circle cx="124" cy="110" r="12" fill="#F472B6" fillOpacity="0.75" />
       {/* thumb hole */}
-      <circle cx="155" cy="88" r="8" fill="white" fillOpacity="0.6" />
+      <circle cx="170" cy="100" r="9" fill="white" fillOpacity="0.8" />
       {/* brush */}
-      <rect x="175" y="38" width="8" height="44" rx="4" fill="white" fillOpacity="0.7" transform="rotate(30 175 38)" />
-      <ellipse cx="195" cy="48" rx="6" ry="10" fill="#D97706" fillOpacity="0.8" transform="rotate(30 195 48)" />
+      <rect x="208" y="30" width="9" height="52" rx="5" fill="white" fillOpacity="0.8" transform="rotate(35 208 30)" />
+      <ellipse cx="232" cy="42" rx="7" ry="12" fill="#D97706" fillOpacity="0.85" transform="rotate(35 232 42)" />
+      {/* sparkles */}
+      <circle cx="60" cy="55" r="5" fill="#FDE68A" fillOpacity="0.7" />
+      <circle cx="280" cy="50" r="7" fill="#FDE68A" fillOpacity="0.5" />
     </svg>
   );
 }
 
 function DevelopmentIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="240" cy="135" r="65" fill="white" fillOpacity="0.18" />
-      <circle cx="18" cy="18" r="30" fill="white" fillOpacity="0.12" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <circle cx="272" cy="148" r="80" fill="#0284C7" fillOpacity="0.10" />
+      <circle cx="22" cy="22" r="45" fill="#0284C7" fillOpacity="0.07" />
       {/* monitor */}
-      <rect x="58" y="28" width="164" height="104" rx="10" fill="white" fillOpacity="0.45" />
-      <rect x="68" y="38" width="144" height="78" rx="6" fill="#0284C7" fillOpacity="0.18" />
+      <rect x="55" y="24" width="188" height="120" rx="12" fill="white" fillOpacity="0.65" />
+      <rect x="67" y="36" width="164" height="90" rx="7" fill="#0284C7" fillOpacity="0.12" />
       {/* code lines */}
-      <rect x="76" y="50" width="30" height="5" rx="2" fill="#38BDF8" fillOpacity="0.8" />
-      <rect x="110" y="50" width="50" height="5" rx="2" fill="#F8FAFC" fillOpacity="0.5" />
-      <rect x="84" y="62" width="20" height="5" rx="2" fill="#A5F3FC" fillOpacity="0.7" />
-      <rect x="108" y="62" width="60" height="5" rx="2" fill="#F8FAFC" fillOpacity="0.4" />
-      <rect x="76" y="74" width="40" height="5" rx="2" fill="#38BDF8" fillOpacity="0.6" />
-      <rect x="120" y="74" width="30" height="5" rx="2" fill="#F8FAFC" fillOpacity="0.4" />
-      <rect x="84" y="86" width="55" height="5" rx="2" fill="#F8FAFC" fillOpacity="0.35" />
-      <rect x="76" y="98" width="36" height="5" rx="2" fill="#7DD3FC" fillOpacity="0.7" />
+      <rect x="77" y="50" width="36" height="6" rx="2" fill="#38BDF8" fillOpacity="0.9" />
+      <rect x="118" y="50" width="60" height="6" rx="2" fill="#BAE6FD" fillOpacity="0.6" />
+      <rect x="88" y="64" width="24" height="6" rx="2" fill="#7DD3FC" fillOpacity="0.8" />
+      <rect x="116" y="64" width="72" height="6" rx="2" fill="#BAE6FD" fillOpacity="0.5" />
+      <rect x="77" y="78" width="48" height="6" rx="2" fill="#38BDF8" fillOpacity="0.7" />
+      <rect x="130" y="78" width="36" height="6" rx="2" fill="#BAE6FD" fillOpacity="0.5" />
+      <rect x="88" y="92" width="66" height="6" rx="2" fill="#BAE6FD" fillOpacity="0.4" />
+      <rect x="77" y="106" width="44" height="6" rx="2" fill="#7DD3FC" fillOpacity="0.75" />
+      {/* code tag badge */}
+      <rect x="196" y="96" width="42" height="28" rx="8" fill="#0284C7" fillOpacity="0.18" />
+      <text x="204" y="116" fontSize="16" fill="#0EA5E9" fillOpacity="0.8" fontFamily="monospace" fontWeight="bold">{`</>`}</text>
       {/* stand */}
-      <rect x="126" y="132" width="28" height="8" rx="4" fill="white" fillOpacity="0.5" />
-      <rect x="136" y="126" width="8" height="10" rx="2" fill="white" fillOpacity="0.4" />
-      {/* brackets decoration */}
-      <text x="194" y="95" fontSize="32" fill="#0284C7" fillOpacity="0.3" fontFamily="monospace" fontWeight="bold">{`>`}</text>
+      <rect x="140" y="144" width="36" height="10" rx="5" fill="white" fillOpacity="0.55" />
+      <rect x="152" y="138" width="12" height="10" rx="3" fill="white" fillOpacity="0.45" />
     </svg>
   );
 }
 
 function QAIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="238" cy="132" r="65" fill="white" fillOpacity="0.18" />
-      <circle cx="20" cy="18" r="30" fill="white" fillOpacity="0.12" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <circle cx="270" cy="150" r="80" fill="#7C3AED" fillOpacity="0.10" />
+      <circle cx="22" cy="22" r="45" fill="#7C3AED" fillOpacity="0.07" />
       {/* checklist card */}
-      <rect x="70" y="28" width="140" height="108" rx="10" fill="white" fillOpacity="0.45" />
-      {/* items */}
-      {[44, 68, 92, 116].map((y, i) => (
+      <rect x="70" y="22" width="160" height="130" rx="12" fill="white" fillOpacity="0.65" />
+      {/* header bar */}
+      <rect x="70" y="22" width="160" height="26" rx="12" fill="#A78BFA" fillOpacity="0.25" />
+      <circle cx="86" cy="35" r="5" fill="#A78BFA" fillOpacity="0.6" />
+      {/* check items */}
+      {[58, 82, 106].map((y) => (
         <g key={y}>
-          <rect x="82" y={y} width="16" height="16" rx="4" fill={i < 3 ? "#10B981" : "#D1FAE5"} fillOpacity={i < 3 ? "0.8" : "0.5"} />
-          {i < 3 && (
-            <polyline points={`85,${y + 8} ${88},${y + 12} ${95},${y + 5}`} stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-          )}
-          <rect x="104" y={y + 3} width={i === 3 ? 50 : 88} height="10" rx="3" fill="#10B981" fillOpacity={i < 3 ? "0.3" : "0.15"} />
+          <rect x="84" y={y} width="18" height="18" rx="5" fill="#7C3AED" fillOpacity="0.18" />
+          <polyline points={`87,${y + 9} ${91},${y + 13} ${99},${y + 5}`} stroke="#7C3AED" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <rect x="108" y={y + 4} width="100" height="8" rx="3" fill="#DDD6FE" fillOpacity="0.7" />
         </g>
       ))}
-      {/* rocket */}
-      <g transform="translate(188, 30) rotate(45)">
-        <ellipse cx="0" cy="0" rx="10" ry="18" fill="#10B981" fillOpacity="0.8" />
-        <polygon points="-10,12 0,26 10,12" fill="#D1FAE5" fillOpacity="0.6" />
-        <circle cx="0" cy="-4" r="5" fill="white" fillOpacity="0.7" />
-      </g>
+      {/* unchecked */}
+      <rect x="84" y="130" width="18" height="18" rx="5" fill="#EDE9FE" fillOpacity="0.5" />
+      <rect x="108" y="134" width="60" height="8" rx="3" fill="#EDE9FE" fillOpacity="0.5" />
+      {/* bug icon */}
+      <circle cx="254" cy="72" r="22" fill="#A78BFA" fillOpacity="0.18" />
+      <circle cx="254" cy="72" r="12" fill="#7C3AED" fillOpacity="0.25" />
+      <circle cx="254" cy="72" r="6" fill="#7C3AED" fillOpacity="0.5" />
+      <line x1="254" y1="50" x2="254" y2="60" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
+      <line x1="254" y1="84" x2="254" y2="94" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
+      <line x1="232" y1="72" x2="242" y2="72" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
+      <line x1="266" y1="72" x2="276" y2="72" stroke="#A78BFA" strokeWidth="2" strokeLinecap="round" />
     </svg>
   );
 }
 
 function HandoverIllustration() {
   return (
-    <svg viewBox="0 0 280 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-      <circle cx="238" cy="132" r="65" fill="white" fillOpacity="0.18" />
-      <circle cx="20" cy="18" r="30" fill="white" fillOpacity="0.12" />
-      {/* two people */}
-      {/* left person */}
-      <circle cx="96" cy="55" r="18" fill="white" fillOpacity="0.5" />
-      <path d="M68 128 Q68 96 96 96 Q124 96 124 128" fill="white" fillOpacity="0.35" />
-      {/* right person */}
-      <circle cx="184" cy="55" r="18" fill="white" fillOpacity="0.5" />
-      <path d="M156 128 Q156 96 184 96 Q212 96 212 128" fill="white" fillOpacity="0.35" />
-      {/* handshake box in middle */}
-      <rect x="118" y="70" width="44" height="34" rx="8" fill="#2563EB" fillOpacity="0.25" />
-      <path d="M124 87 Q140 78 156 87" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      <path d="M124 93 Q140 102 156 93" stroke="white" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-      {/* star / sparkles */}
-      <circle cx="140" cy="40" r="5" fill="#FBBF24" fillOpacity="0.8" />
-      <circle cx="155" cy="30" r="3" fill="#FBBF24" fillOpacity="0.6" />
-      <circle cx="126" cy="32" r="3" fill="#FBBF24" fillOpacity="0.6" />
+    <svg viewBox="0 0 320 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+      <circle cx="272" cy="148" r="80" fill="#2563EB" fillOpacity="0.10" />
+      <circle cx="22" cy="22" r="45" fill="#2563EB" fillOpacity="0.07" />
+      {/* rocket */}
+      <ellipse cx="160" cy="82" rx="22" ry="40" fill="#BFDBFE" fillOpacity="0.8" />
+      <ellipse cx="160" cy="82" rx="14" ry="28" fill="#2563EB" fillOpacity="0.35" />
+      <circle cx="160" cy="74" r="9" fill="white" fillOpacity="0.75" />
+      {/* fins */}
+      <polygon points="138,110 148,90 148,115" fill="#93C5FD" fillOpacity="0.7" />
+      <polygon points="172,110 172,90 182,110" fill="#93C5FD" fillOpacity="0.7" />
+      {/* flame */}
+      <ellipse cx="160" cy="126" rx="10" ry="16" fill="#FBBF24" fillOpacity="0.8" />
+      <ellipse cx="160" cy="130" rx="6" ry="10" fill="#F97316" fillOpacity="0.7" />
+      {/* clouds / smoke */}
+      <ellipse cx="130" cy="138" rx="18" ry="12" fill="white" fillOpacity="0.45" />
+      <ellipse cx="190" cy="142" rx="15" ry="10" fill="white" fillOpacity="0.45" />
+      {/* chart card */}
+      <rect x="210" y="32" width="80" height="60" rx="10" fill="white" fillOpacity="0.65" />
+      <polyline points="220,80 234,62 248,70 262,48 278,56" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* sparkles */}
+      <circle cx="52" cy="60" r="6" fill="#BFDBFE" fillOpacity="0.7" />
+      <circle cx="46" cy="110" r="4" fill="#93C5FD" fillOpacity="0.6" />
+      <circle cx="278" cy="115" r="5" fill="#BFDBFE" fillOpacity="0.6" />
     </svg>
   );
 }
@@ -157,9 +184,10 @@ const steps = [
     title: "Discovery & Strategy",
     description:
       "We get under the skin of your business — your goals, your users, your market. The output is a clear strategic direction, not a vague mood board.",
-    icon: Search,
-    bg: "bg-[#C4B5FD]",
-    iconBg: "bg-[#7C3AED]",
+    bg: "bg-[#D4C9FF]",
+    numberColor: "text-[#7C3AED] bg-[#BFB2F5]",
+    linkColor: "text-[#7C3AED] hover:text-[#6D28D9]",
+    href: "/services",
     Illustration: DiscoveryIllustration,
   },
   {
@@ -167,9 +195,10 @@ const steps = [
     title: "User Flows & Wireframes",
     description:
       "Before a single pixel is designed, we map every screen and decision point. Structure first — so the experience feels effortless when it's built.",
-    icon: GitBranch,
-    bg: "bg-[#6EE7B7]",
-    iconBg: "bg-[#059669]",
+    bg: "bg-[#B2EDD6]",
+    numberColor: "text-[#059669] bg-[#6EE7B7]",
+    linkColor: "text-[#059669] hover:text-[#047857]",
+    href: "/services",
     Illustration: WireframeIllustration,
   },
   {
@@ -177,9 +206,10 @@ const steps = [
     title: "UI Design & Visual Identity",
     description:
       "Wireframes become interfaces that look and feel unmistakably yours. We sweat the details — typography, colour, motion — so your brand lands with impact.",
-    icon: Palette,
-    bg: "bg-[#FDE68A]",
-    iconBg: "bg-[#D97706]",
+    bg: "bg-[#FDDFA0]",
+    numberColor: "text-[#D97706] bg-[#FBD060]",
+    linkColor: "text-[#D97706] hover:text-[#B45309]",
+    href: "/services",
     Illustration: DesignIllustration,
   },
   {
@@ -187,9 +217,10 @@ const steps = [
     title: "Engineering & Build",
     description:
       "Clean code, modern stack, zero shortcuts. We turn designs into fast, accessible, production-ready products that scale with your ambitions.",
-    icon: Code2,
-    bg: "bg-[#BAE6FD]",
-    iconBg: "bg-[#0284C7]",
+    bg: "bg-[#B6E4FA]",
+    numberColor: "text-[#0284C7] bg-[#7DD3FC]",
+    linkColor: "text-[#0284C7] hover:text-[#0369A1]",
+    href: "/services",
     Illustration: DevelopmentIllustration,
   },
   {
@@ -197,9 +228,10 @@ const steps = [
     title: "Testing & Launch",
     description:
       "We stress-test across devices, browsers, and edge cases before anything ships. You get a confident launch, not a crossed-fingers one.",
-    icon: FlaskConical,
-    bg: "bg-[#A7F3D0]",
-    iconBg: "bg-[#10B981]",
+    bg: "bg-[#D4C9FF]",
+    numberColor: "text-[#7C3AED] bg-[#BFB2F5]",
+    linkColor: "text-[#7C3AED] hover:text-[#6D28D9]",
+    href: "/services",
     Illustration: QAIllustration,
   },
   {
@@ -207,9 +239,10 @@ const steps = [
     title: "Handover & Growth Support",
     description:
       "Launch is the beginning, not the end. We hand over everything you need to own it, and stay close to help you grow, iterate, and improve.",
-    icon: Handshake,
     bg: "bg-[#BFDBFE]",
-    iconBg: "bg-[#2563EB]",
+    numberColor: "text-[#2563EB] bg-[#93C5FD]",
+    linkColor: "text-[#2563EB] hover:text-[#1D4ED8]",
+    href: "/services",
     Illustration: HandoverIllustration,
   },
 ];
@@ -222,7 +255,7 @@ export default function ProcessSection() {
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
 
         {/* Heading */}
-        <div className="mb-16 max-w-2xl">
+        <div className="mb-12 max-w-2xl">
           <p className="text-xl md:text-2xl font-bold text-[#71797E] mb-2">
             From brief to launch — no guesswork.
           </p>
@@ -232,38 +265,34 @@ export default function ProcessSection() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {steps.map((step) => {
             const { Illustration } = step;
             return (
-              <div key={step.number} className="flex flex-col gap-5">
-
-                {/* Illustration card */}
-                <div
-                  className={`relative w-full h-52 rounded-2xl ${step.bg} overflow-hidden`}
-                  aria-hidden="true"
-                >
-                  {/* Step number — top left */}
-                  <span className="absolute top-4 left-5 text-xs font-bold text-foreground/40 tracking-widest z-10">
+              <div
+                key={step.number}
+                className="group flex flex-col rounded-2xl overflow-hidden border border-foreground/8 bg-card shadow-sm hover:shadow-lg transition-shadow duration-300"
+              >
+                {/* Illustration area */}
+                <div className={`relative w-full h-48 ${step.bg} overflow-hidden`}>
+                  {/* Step number pill */}
+                  <span className={`absolute top-4 left-4 z-10 text-xs font-bold px-2.5 py-1 rounded-full ${step.numberColor}`}>
                     {step.number}
                   </span>
-
-                  {/* Full-bleed illustration */}
                   <div className="absolute inset-0">
                     <Illustration />
                   </div>
                 </div>
 
-                {/* Text */}
-                <div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">
+                {/* Text content */}
+                <div className="flex flex-col flex-1 p-6 gap-2.5">
+                  <h3 className="text-lg font-bold text-foreground leading-snug">
                     {step.title}
                   </h3>
-                  <p className="text-sm text-foreground/60 leading-relaxed">
+                  <p className="text-sm text-foreground/55 leading-relaxed flex-1">
                     {step.description}
                   </p>
                 </div>
-
               </div>
             );
           })}

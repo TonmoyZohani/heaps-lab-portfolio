@@ -3,7 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Phone } from "lucide-react";
+import {
+  User, Building2, Mail, Wrench, DollarSign,
+  AlignLeft, Send, Phone,
+} from "lucide-react";
 
 const services = [
   "Custom Software Development",
@@ -29,199 +32,256 @@ const budgets = [
   "Not sure yet",
 ];
 
+/* Reusable input wrapper */
+function Field({ label, required, children }: { label: string; required?: boolean; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col gap-1.5">
+      <label className="text-sm font-semibold text-foreground/70">
+        {label} {required && <span className="text-[#E01F59]">*</span>}
+      </label>
+      {children}
+    </div>
+  );
+}
+
+const inputBase =
+  "w-full flex items-center gap-2.5 border border-foreground/12 rounded-xl px-4 py-2.5 bg-background text-sm text-foreground placeholder:text-foreground/30 focus-within:border-[#E01F59] transition-colors duration-200";
+
 export default function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Replace with your actual form submission logic
     setSubmitted(true);
   }
 
   return (
-    <section className="w-full bg-[#D6DCE1] py-20 md:py-28 overflow-hidden">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
+    <section className="w-full bg-[#D6DCE1] py-20 md:py-28 overflow-hidden relative">
+      {/* Decorative blobs */}
+      <div className="absolute top-0 left-0 w-64 h-64 rounded-full bg-[#E01F59]/6 -translate-x-1/2 -translate-y-1/2 blur-2xl pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 rounded-full bg-[#E01F59]/6 translate-x-1/3 translate-y-1/3 blur-2xl pointer-events-none" />
 
-        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-16 items-start">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_1.45fr] gap-14 items-start">
 
-          {/* ── Left: heading + person ── */}
-          <div className="flex flex-col gap-10">
+          {/* ── Left ── */}
+          <div className="flex flex-col gap-8">
+
+            {/* Label */}
+            <div className="flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-[#E01F59]" />
+              <span className="text-xs font-bold uppercase tracking-widest text-[#E01F59]">
+                Get in Touch
+              </span>
+            </div>
+
+            {/* Headline */}
             <div>
-              <p className="text-xl md:text-2xl font-bold text-[#71797E] mb-2">
-                Ready to build something great?
-              </p>
-              <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
-                Have an Idea? Let&apos;s <span className="text-[#E01F59]">Make it Real.</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                Have an Idea?
               </h2>
-              <p className="mt-5 text-base text-foreground/50 leading-relaxed max-w-sm">
-                Tell us what you&apos;re building, improving, or trying to solve. We&apos;ll
-                discuss your goals, recommend the right approach, and define the
-                next steps together.
+              <h2 className="text-4xl md:text-5xl font-bold text-[#E01F59] leading-tight">
+                Let&apos;s Make it Real.
+              </h2>
+              <p className="mt-4 text-sm text-foreground/55 leading-relaxed max-w-xs">
+                Tell us what you&apos;re building, creating, or trying to solve, we&apos;ll
+                discuss your goals, recommend the right approach, and define the next
+                steps together.
               </p>
             </div>
 
-            {/* Person card */}
+            {/* Logo card */}
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 bg-foreground/5">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 bg-foreground/5 border border-foreground/8">
                 <Image
                   src="/images/heaps_lab_logo_dark.png"
                   alt="Heaps Lab"
-                  width={80}
-                  height={80}
+                  width={56}
+                  height={56}
                   className="w-full h-full object-cover"
                 />
               </div>
               <div>
-                <p className="font-bold text-foreground text-base">Heaps Lab</p>
-                <p className="text-sm text-foreground/50">Digital Studio</p>
-                <p className="text-sm text-[#E01F59] mt-0.5">hello@heapslab.io</p>
+                <p className="text-sm font-bold text-foreground">Heaps Lab</p>
+                <p className="text-xs text-foreground/50">Build. Innovate. Grow.</p>
+                <a
+                  href="mailto:hello@heapslab.io"
+                  className="inline-flex items-center gap-1.5 text-xs text-[#E01F59] font-semibold mt-0.5 hover:underline"
+                >
+                  <Mail className="w-3 h-3" />
+                  hello@heapslab.io
+                </a>
               </div>
             </div>
 
-            {/* Contact details */}
-            <div className="grid grid-cols-2 gap-6">
+            {/* Divider */}
+            <div className="border-t border-foreground/10" />
 
-              {/* US */}
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5" aria-label="United States">🇺🇸</span>
+            {/* Addresses */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="flex items-start gap-2.5">
+                <span className="text-lg mt-0.5" aria-label="United States">🇺🇸</span>
                 <div>
-                  <p className="text-sm font-semibold text-foreground/70">United States</p>
-                  <p className="text-sm text-foreground/50 leading-snug">
-                    Fairfield, Bristol, CT 06010<br />Connecticut, USA
+                  <p className="text-sm font-bold text-foreground">United States</p>
+                  <p className="text-xs text-foreground/50 leading-snug mt-0.5">
+                    75-77 King Street, CT 06010<br />Farmington, USA
                   </p>
                   <a
                     href="tel:+16469601891"
-                    className="text-sm text-[#E01F59] font-medium mt-0.5 inline-flex items-center gap-1 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs text-[#E01F59] font-semibold mt-1 hover:underline"
                   >
-                    <Phone className="w-3.5 h-3.5 text-foreground" />
-                    +1 646-960-1891
+                    <Phone className="w-3 h-3" />
+                    +1 860-676-4957
                   </a>
                 </div>
               </div>
-
-              {/* BD */}
-              <div className="flex items-start gap-3">
-                <span className="text-xl mt-0.5" aria-label="Bangladesh">🇧🇩</span>
+              <div className="flex items-start gap-2.5">
+                <span className="text-lg mt-0.5" aria-label="Bangladesh">🇧🇩</span>
                 <div>
-                  <p className="text-sm font-semibold text-foreground/70">Bangladesh</p>
-                  <p className="text-sm text-foreground/50 leading-snug">
-                    Mohammadpur, Dhaka - 1207
+                  <p className="text-sm font-bold text-foreground">Bangladesh</p>
+                  <p className="text-xs text-foreground/50 leading-snug mt-0.5">
+                    Moghbazar, Dhaka 1217
                   </p>
                   <a
                     href="tel:+8801956380776"
-                    className="text-sm text-[#E01F59] font-medium mt-0.5 inline-flex items-center gap-1 hover:underline"
+                    className="inline-flex items-center gap-1 text-xs text-[#E01F59] font-semibold mt-1 hover:underline"
                   >
-                    <Phone className="w-3.5 h-3.5 text-foreground" />
-                    +88 019 56 38 07 76
+                    <Phone className="w-3 h-3" />
+                    +880 1792-52 96 78
                   </a>
                 </div>
               </div>
-
             </div>
 
             {/* Book a call */}
-            <p className="text-sm text-foreground/50">
+            <p className="text-xs text-foreground/45">
               Not interested in filling out a form?{" "}
-              <Link
-                href="/contact"
-                className="text-[#E01F59] font-semibold hover:underline"
-              >
+              <Link href="/contact" className="text-[#E01F59] font-semibold hover:underline">
                 Book a 30 Mins Session →
               </Link>
             </p>
           </div>
 
-          {/* ── Right: form ── */}
-          <div className="bg-white rounded-3xl p-10 md:p-14 shadow-sm border border-foreground/5">
+          {/* ── Right: form card ── */}
+          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-foreground/6">
+
+            {/* Form header */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-2xl bg-[#E01F59]/10 flex items-center justify-center shrink-0">
+                <Mail className="w-5 h-5 text-[#E01F59]" />
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-foreground/40">
+                  Send us a Message
+                </p>
+                <h3 className="text-lg font-bold text-foreground leading-tight">
+                  Let&apos;s Talk About Your Project
+                </h3>
+              </div>
+            </div>
+
             {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full gap-4 py-16 text-center">
+              <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
                 <span className="text-5xl">🎉</span>
                 <h3 className="text-2xl font-bold text-foreground">Inquiry sent!</h3>
-                <p className="text-foreground/50 max-w-xs">
+                <p className="text-sm text-foreground/50 max-w-xs">
                   Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
                 {/* Full name */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-semibold text-foreground/70">Full Name</label>
-                  <input
-                    type="text"
-                    placeholder="Jane Cooper"
-                    required
-                    className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground placeholder:text-foreground/30 text-sm outline-none transition-colors duration-200"
-                  />
-                </div>
-
-                {/* Company + Email */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-semibold text-foreground/70">Company Name</label>
+                <Field label="Full Name" required>
+                  <div className={inputBase}>
+                    <User className="w-4 h-4 text-foreground/30 shrink-0" />
                     <input
                       type="text"
-                      placeholder="Ex. Tesla Inc"
-                      className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground placeholder:text-foreground/30 text-sm outline-none transition-colors duration-200"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-semibold text-foreground/70">Email *</label>
-                    <input
-                      type="email"
-                      placeholder="you@example.com"
+                      placeholder="John Cooper"
                       required
-                      className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground placeholder:text-foreground/30 text-sm outline-none transition-colors duration-200"
+                      className="flex-1 bg-transparent outline-none placeholder:text-foreground/30 text-foreground"
                     />
                   </div>
+                </Field>
+
+                {/* Company + Email */}
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Field label="Company Name">
+                    <div className={inputBase}>
+                      <Building2 className="w-4 h-4 text-foreground/30 shrink-0" />
+                      <input
+                        type="text"
+                        placeholder="Ex. Tech Inc"
+                        className="flex-1 bg-transparent outline-none placeholder:text-foreground/30 text-foreground"
+                      />
+                    </div>
+                  </Field>
+                  <Field label="Email" required>
+                    <div className={inputBase}>
+                      <Mail className="w-4 h-4 text-foreground/30 shrink-0" />
+                      <input
+                        type="email"
+                        placeholder="you@company.com"
+                        required
+                        className="flex-1 bg-transparent outline-none placeholder:text-foreground/30 text-foreground"
+                      />
+                    </div>
+                  </Field>
                 </div>
 
                 {/* Service + Budget */}
-                <div className="grid sm:grid-cols-2 gap-5">
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-semibold text-foreground/70">Service Required *</label>
-                    <select
-                      required
-                      defaultValue=""
-                      className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground/60 text-sm outline-none transition-colors duration-200 cursor-pointer"
-                    >
-                      <option value="" disabled>Select Your Service</option>
-                      {services.map((s) => (
-                        <option key={s} value={s}>{s}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-sm font-semibold text-foreground/70">Project Budget *</label>
-                    <select
-                      required
-                      defaultValue=""
-                      className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground/60 text-sm outline-none transition-colors duration-200 cursor-pointer"
-                    >
-                      <option value="" disabled>Select Your Range</option>
-                      {budgets.map((b) => (
-                        <option key={b} value={b}>{b}</option>
-                      ))}
-                    </select>
-                  </div>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <Field label="Service Required" required>
+                    <div className={inputBase}>
+                      <Wrench className="w-4 h-4 text-foreground/30 shrink-0" />
+                      <select
+                        required
+                        defaultValue=""
+                      className="flex-1 bg-transparent outline-none text-foreground/60 cursor-pointer appearance-none"
+                      >
+                        <option value="" disabled>Select Your Service</option>
+                        {services.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </Field>
+                  <Field label="Project Budget" required>
+                    <div className={inputBase}>
+                      <DollarSign className="w-4 h-4 text-foreground/30 shrink-0" />
+                      <select
+                        required
+                        defaultValue=""
+                        className="flex-1 bg-transparent outline-none text-foreground/60 cursor-pointer appearance-none"
+                      >
+                        <option value="" disabled>Select Your Range</option>
+                        {budgets.map((b) => (
+                          <option key={b} value={b}>{b}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </Field>
                 </div>
 
                 {/* Project details */}
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-sm font-semibold text-foreground/70">Project Details *</label>
-                  <textarea
-                    placeholder="Tell us more about your idea..."
-                    required
-                    rows={6}
-                    className="w-full border-b border-foreground/20 focus:border-[#E01F59] bg-transparent py-2 text-foreground placeholder:text-foreground/30 text-sm outline-none transition-colors duration-200 resize-none"
-                  />
-                </div>
+                <Field label="Project Details" required>
+                  <div className={`${inputBase} items-start`}>
+                    <AlignLeft className="w-4 h-4 text-foreground/30 shrink-0 mt-0.5" />
+                    <textarea
+                      placeholder="Tell us more about your idea..."
+                      required
+                      rows={4}
+                      className="flex-1 bg-transparent outline-none placeholder:text-foreground/30 text-foreground resize-none"
+                    />
+                  </div>
+                </Field>
 
                 {/* Submit */}
                 <button
                   type="submit"
-                  className="mt-2 w-full bg-[#070C10] hover:bg-[#E01F59] text-white text-sm font-semibold py-4 rounded-full transition-colors duration-300"
+                  className="mt-1 w-full flex items-center justify-center gap-2 bg-[#070C10] hover:bg-[#E01F59] text-white text-sm font-semibold py-3.5 rounded-xl transition-colors duration-300"
                 >
+                  <Send className="w-4 h-4" />
                   Send Inquiry
                 </button>
 

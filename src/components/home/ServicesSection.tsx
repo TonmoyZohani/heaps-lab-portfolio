@@ -6,9 +6,9 @@ const services = [
   {
     number: "01",
     category: "Software Development",
-    headline: "Custom software built to handle real growth",
+    headline: "Build digital products that move your business forward",
     description:
-      "Custom software, web applications, and mobile apps built to handle real growth — not just launch day.",
+      "From websites and web apps to SaaS platforms and mobile applications, we build reliable digital products designed around your business goals and ready to scale.",
     items: [
       "Custom Web Applications",
       "SaaS Development",
@@ -21,35 +21,35 @@ const services = [
   },
   {
     number: "02",
-    category: "3D & Digital Experiences",
-    headline: "Make the unseen easier to understand",
+    category: "Design",
+    headline: "Design experiences people remember and love to use",
     description:
-      "3D animation, product visualization, and interactive experiences that help people understand a product before it exists.",
+      "We create thoughtful digital experiences and visual identities that make your business look professional, communicate clearly, and connect with your audience.",
     items: [
-      "Architectural Visualization",
-      "3D Walkthroughs",
-      "Product Animation",
-      "3D Modeling",
-      "Explainer Animation",
-      "Character Animation & VFX",
+      "UI/UX Design",
+      "Web Design",
+      "Brand Identity",
+      "Graphic Design",
+      "3D & Product Visualization",
+      "Motion & Animation",
     ],
-    href: "/services/3d-digital-experiences",
+    href: "/services/design",
   },
   {
     number: "03",
-    category: "Digital Solutions",
-    headline: "Digital solutions that make operations better",
+    category: "Marketing",
+    headline: "Turn your digital presence into real business growth",
     description:
-      "UI/UX, business automation, and digital transformation work that makes existing operations run better.",
+      "We help businesses reach the right audience, build visibility, and generate growth through strategic digital marketing, SEO, content, and performance campaigns.",
     items: [
-      "UI/UX & Web Design",
-      "Branding",
-      "Digital Marketing & SEO",
-      "Business Automation",
-      "Cloud Solutions",
-      "IT Consulting",
+      "Digital Marketing",
+      "Search Engine Optimization",
+      "Social Media Marketing",
+      "Content Marketing",
+      "Performance Marketing",
+      "Analytics & Growth",
     ],
-    href: "/services/digital-solutions",
+    href: "/services/marketing",
   },
 ];
 

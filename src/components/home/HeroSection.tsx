@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const videos = ["/videos/video1.mp4", "/videos/video2.mp4", "/videos/video3.mp4"];
 
 /* ── Word-by-word reveal animation ──────────────────────────────────── */
-const WORDS = ["Solutions.", "Systems.", "Scale."];
+const WORDS = ["Build.", "Launch.", "Market.", "Grow."];
 const WORD_INTERVAL = 700;   // ms between each word appearing
 const HOLD_DURATION = 300;   // ms to hold the full phrase before reset
 const FADE_DURATION = 200;   // ms for the whole-line fade-out
@@ -106,7 +106,7 @@ export default function HeroSection() {
         {/* Headline */}
         <div className="flex-1 flex flex-col justify-center gap-6">
           <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
-            Your business has the vision. We build the technology that brings it to life.
+     From Building Your Business to Marketing Your Brand, We've Got You Covered.
           </h1>
           <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm">
             We design and build high-performance digital products — websites, platforms, and campaigns that drive real growth for ambitious brands.

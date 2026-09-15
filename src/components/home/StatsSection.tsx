@@ -1,4 +1,5 @@
-import { Globe, ArrowRight } from "lucide-react";
+import { Rocket, Users, Globe, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const stats = [
   {
@@ -6,68 +7,37 @@ const stats = [
     title: "Successful Projects",
     description:
       "Building high-quality digital products that solve real business challenges and drive meaningful outcomes.",
-    icon: "📊",
+    icon: Rocket,
+    iconBg: "bg-[#EEE9FF]",
+    iconColor: "text-[#7C3AED]",
   },
   {
     number: "99%",
     title: "Client Satisfaction",
     description:
       "Creating lasting partnerships through reliable delivery, clear communication, and a strong focus on client goals.",
-    icon: "⭐",
+    icon: Users,
+    iconBg: "bg-[#E0F4FF]",
+    iconColor: "text-[#0284C7]",
   },
   {
     number: "3+",
     title: "Global Clients",
     description:
       "Helping businesses across different markets turn ideas into impactful digital experiences and solutions.",
-    icon: "🌍",
+    icon: Globe,
+    iconBg: "bg-[#E8FBF4]",
+    iconColor: "text-[#059669]",
   },
 ];
-
-function StatCard({ stat, index }: { stat: typeof stats[0]; index: number }) {
-  return (
-    <div
-      className="group relative bg-white rounded-3xl p-8 md:p-10 flex flex-col gap-6 border border-[#333333]/5 hover:border-[#E01F59]/20 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
-      {/* Background glow on hover */}
-      <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#E01F59]/0 to-[#E01F59]/0 group-hover:from-[#E01F59]/5 group-hover:to-transparent transition-all duration-700" />
-      
-      {/* Number with gradient accent */}
-      <div className="relative">
-        <span className="text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent tracking-tight leading-none">
-          {stat.number}
-        </span>
-        <div className="absolute -top-2 -right-2 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          {stat.icon}
-        </div>
-      </div>
-
-      <div className="relative space-y-2">
-        <h3 className="text-lg font-bold text-foreground tracking-tight">
-          {stat.title}
-        </h3>
-        <p className="text-sm text-foreground/40 leading-relaxed font-light">
-          {stat.description}
-        </p>
-      </div>
-
-      {/* Decorative line */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#E01F59]/0 via-[#E01F59]/0 group-hover:via-[#E01F59]/30 to-[#E01F59]/0 rounded-full transition-all duration-700" />
-    </div>
-  );
-}
 
 export default function StatsSection() {
   return (
     <section className="w-full bg-background pb-20 md:pb-28 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-[#E01F59]/5 to-transparent rounded-full blur-3xl" />
-      <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-indigo-500/5 to-transparent rounded-full blur-3xl" />
-
       <div className="max-w-screen-2xl mx-auto px-6 md:px-10 lg:px-0">
+
         {/* Section header */}
-        <div className="mb-16">
+        <div className="mb-12">
           <p className="text-xl md:text-2xl font-bold text-[#71797E] mb-2">
             The impact speaks for itself.
           </p>
@@ -76,46 +46,75 @@ export default function StatsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Stat cards with staggered animation */}
-          {stats.map((stat, index) => (
-            <StatCard key={stat.title} stat={stat} index={index} />
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 
-          {/* Globe card - featured */}
-          <div
-            className="group relative bg-gradient-to-br from-[#E01F59] to-[#b01745] rounded-3xl p-8 md:p-10 flex flex-col gap-6 hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
-            style={{ animationDelay: "300ms" }}
-          >
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-            
-            {/* Globe icon with ring */}
-            <div className="relative">
-              <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20">
-                <Globe className="w-8 h-8 text-white" />
+          {/* Stat cards */}
+          {stats.map((stat) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={stat.title}
+                className="group flex flex-col justify-between rounded-2xl border border-foreground/8 bg-card p-7 shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="flex flex-col gap-4">
+                  {/* Icon */}
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${stat.iconBg}`}>
+                    <Icon className={`w-5 h-5 ${stat.iconColor}`} />
+                  </div>
+
+                  {/* Number */}
+                  <span className="text-5xl md:text-6xl font-bold text-foreground tracking-tight leading-none">
+                    {stat.number}
+                  </span>
+
+                  {/* Title + description */}
+                  <div className="space-y-1.5">
+                    <h3 className="text-base font-bold text-foreground">
+                      {stat.title}
+                    </h3>
+                    <p className="text-sm text-foreground/50 leading-relaxed">
+                      {stat.description}
+                    </p>
+                  </div>
+                </div>
               </div>
-              {/* Pulsing ring */}
-              <div className="absolute -inset-1 rounded-2xl border border-white/20 animate-pulse" />
-            </div>
+            );
+          })}
 
-            <div className="space-y-3 relative">
-              <h3 className="text-xl font-bold text-white leading-tight tracking-tight">
-                Global Impact.<br />Measurable Results.
+          {/* Globe / featured card */}
+          <div className="group relative flex flex-col justify-between rounded-2xl p-7 overflow-hidden bg-gradient-to-br from-[#2DD4A0] to-[#0E9E6E] shadow-sm hover:shadow-xl transition-shadow duration-300">
+            {/* Decorative blobs */}
+            <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white/10 -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-20 h-20 rounded-full bg-white/10 translate-y-1/2 -translate-x-1/4" />
+
+            <div className="relative flex flex-col gap-4">
+              {/* Icon */}
+              <div className="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center">
+                <Globe className="w-5 h-5 text-white" />
+              </div>
+
+              {/* Headline */}
+              <h3 className="text-xl font-bold text-white leading-snug">
+                Global Impact:<br />Measurable Results.
               </h3>
-              <p className="text-sm text-white/70 leading-relaxed font-light">
+
+              {/* Description */}
+              <p className="text-sm text-white/80 leading-relaxed">
                 Our global reach and extensive project experience are a testament to our
                 commitment to a personalised approach for every partnership.
               </p>
             </div>
 
-            {/* Arrow indicator */}
-            <div className="absolute bottom-6 right-6 w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-all duration-300">
-              <ArrowRight className="w-4 h-4 text-white" />
+            {/* Arrow button */}
+            <div className="relative mt-6">
+              <Link href="/work">
+                <div className="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors duration-200">
+                  <ArrowRight className="w-4 h-4 text-white" />
+                </div>
+              </Link>
             </div>
-
-            {/* Bottom decorative line */}
-            <div className="absolute bottom-0 left-6 right-6 h-0.5 bg-gradient-to-r from-white/0 via-white/30 to-white/0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
           </div>
+
         </div>
       </div>
     </section>

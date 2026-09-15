@@ -11,32 +11,39 @@ import { cn } from "@/lib/utils";
 
 const serviceGroups = [
   {
-    heading: "Development",
+    heading: "Software Development",
+    href: "/services/software-development",
     items: [
-      { label: "Custom Software Development", href: "/services/development#custom-software-development" },
-      { label: "Web Development", href: "/services/development#web-development" },
-      { label: "Mobile App Development", href: "/services/development#mobile-app-development" },
-      { label: "SaaS Development", href: "/services/development#saas-development" },
-      { label: "AI & Automation", href: "/services/development#ai-automation" },
-      { label: "Cloud & DevOps", href: "/services/development#cloud-devops" },
-      { label: "E-commerce Solutions", href: "/services/development#ecommerce-solutions" },
+      { label: "Custom Web Applications", href: "/services/software-development#custom-web-applications" },
+      { label: "SaaS Development", href: "/services/software-development#saas-development" },
+      { label: "Mobile App Development", href: "/services/software-development#mobile-app-development" },
+      { label: "ERP & CRM Development", href: "/services/software-development#erp-crm-development" },
+      { label: "API & Backend Development", href: "/services/software-development#api-backend-development" },
+      { label: "AI/ML Solutions", href: "/services/software-development#ai-ml-solutions" },
     ],
   },
   {
     heading: "Design",
+    href: "/services/design",
     items: [
       { label: "UI/UX Design", href: "/services/design#ui-ux-design" },
+      { label: "Web Design", href: "/services/design#web-design" },
       { label: "Brand Identity", href: "/services/design#brand-identity" },
       { label: "Graphic Design", href: "/services/design#graphic-design" },
-      { label: "Digital Product Design", href: "/services/design#digital-product-design" },
+      { label: "3D & Product Visualization", href: "/services/design#3d-product-visualization" },
+      { label: "Motion & Animation", href: "/services/design#motion-animation" },
     ],
   },
   {
     heading: "Marketing",
+    href: "/services/marketing",
     items: [
       { label: "Digital Marketing", href: "/services/marketing#digital-marketing" },
-      { label: "SEO & Content", href: "/services/marketing#seo-content" },
+      { label: "Search Engine Optimization", href: "/services/marketing#seo" },
       { label: "Social Media Marketing", href: "/services/marketing#social-media-marketing" },
+      { label: "Content Marketing", href: "/services/marketing#content-marketing" },
+      { label: "Performance Marketing", href: "/services/marketing#performance-marketing" },
+      { label: "Analytics & Growth", href: "/services/marketing#analytics-growth" },
     ],
   },
 ];
@@ -345,15 +352,7 @@ export default function Navbar() {
           <div className="flex flex-col h-full">
 
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#E01F59]/10">
-                  <Layers className="h-3.5 w-3.5 text-[#E01F59]" />
-                </span>
-
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-foreground/35">
-                  What we do
-                </span>
-              </div>
+            
 
               <h3 className="max-w-[220px] text-[24px] font-semibold tracking-[-0.03em] leading-[1.15] text-foreground">
                 Digital products built to move businesses forward.
@@ -361,19 +360,19 @@ export default function Navbar() {
             </div>
 
             {/* Category navigation */}
-            <div className="mt-8 space-y-1">
+            <div className="mt-6 space-y-0.5">
               {[
                 {
                   label: "Development",
                   href: "/services/development",
                   icon: Code2,
-                  description: "Web, mobile & software",
+                  description: "Web, mobile & custom software",
                 },
                 {
                   label: "Design",
                   href: "/services/design",
                   icon: Palette,
-                  description: "UI/UX & brand identity",
+                  description: "UI/UX, brand & visual identity",
                 },
                 {
                   label: "Marketing",
@@ -386,22 +385,22 @@ export default function Navbar() {
                   key={href}
                   href={href}
                   onClick={() => setMegaOpen(false)}
-                  className="group flex items-center gap-3 rounded-xl px-3 py-3 transition-all duration-200 hover:bg-black/[0.035]"
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all duration-200 hover:bg-black/[0.035]"
                 >
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-black/[0.035] transition-all duration-200 group-hover:bg-[#E01F59]/10">
-                    <Icon className="h-4 w-4 text-foreground/40 transition-colors group-hover:text-[#E01F59]" />
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#E01F59]/10 transition-all duration-200 group-hover:bg-[#E01F59]/20">
+                    <Icon className="h-3.5 w-3.5 text-[#E01F59]" />
                   </span>
 
-                  <span className="min-w-0">
-                    <span className="block text-[15px] font-bold text-foreground/70 transition-colors group-hover:text-foreground">
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-[13px] font-bold text-foreground/70 transition-colors group-hover:text-foreground leading-tight">
                       {label}
                     </span>
-                    <span className="block mt-0.5 text-[12px] text-foreground/30">
+                    <span className="block mt-0.5 text-[11px] text-foreground/35 leading-tight">
                       {description}
                     </span>
                   </span>
 
-                  <ArrowRight className="ml-auto h-3.5 w-3.5 -translate-x-1 text-[#E01F59] opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+                  <ArrowRight className="shrink-0 ml-auto h-3 w-3 -translate-x-1 text-[#E01F59] opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
                 </Link>
               ))}
             </div>
@@ -450,9 +449,13 @@ export default function Navbar() {
                     </span>
 
                     <div>
-                      <p className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#E01F59]">
+                      <Link
+                        href={group.href}
+                        onClick={() => setMegaOpen(false)}
+                        className="text-[12px] font-extrabold uppercase tracking-[0.18em] text-[#E01F59] hover:underline"
+                      >
                         {group.heading}
-                      </p>
+                      </Link>
                     </div>
                   </div>
 
