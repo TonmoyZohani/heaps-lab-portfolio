@@ -124,12 +124,14 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    background-color: #070C10;
   }
   * {
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: transparent;
   }
 }
 

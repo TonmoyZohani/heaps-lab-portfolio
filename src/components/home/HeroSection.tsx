@@ -98,11 +98,6 @@ export default function HeroSection() {
       {/* ── LEFT PANEL ─────────────────────────────────────────────── */}
       <div className="relative z-10 flex flex-col justify-between bg-[#070C10] text-white w-full lg:w-[28%] shrink-0 px-8 md:px-18 pt-[calc(68px+3.5rem)] pb-14">
 
-        {/* Tag */}
-        <p className="text-xs font-semibold tracking-widest uppercase text-white/70 mb-8">
-        Software & Digital Studio
-        </p>
-
         {/* Headline */}
         <div className="flex-1 flex flex-col justify-center gap-6">
           <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
