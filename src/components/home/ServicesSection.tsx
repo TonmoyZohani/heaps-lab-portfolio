@@ -55,7 +55,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="relative w-full bg-[#070C10] py-20 md:py-28 overflow-hidden rounded-b-[7rem]">
+    <section className="relative w-full bg-[#070C10] py-20 md:py-28 overflow-hidden rounded-b-[7rem]" style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 7rem), calc(100% - 7rem) 100%, 0 calc(100% - 7rem))" }}>
       {/* Background image with dark overlay */}
       <div className="absolute inset-0 -z-0">
         <Image

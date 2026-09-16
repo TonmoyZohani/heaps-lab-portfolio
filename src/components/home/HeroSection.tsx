@@ -96,7 +96,7 @@ export default function HeroSection() {
     <section className="w-full min-h-[80vh] flex rounded-b-[7rem] overflow-hidden">
 
       {/* ── LEFT PANEL ─────────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col justify-between bg-[#070C10] text-white w-full lg:w-[28%] shrink-0 px-8 md:px-18 pt-[calc(68px+3.5rem)] pb-14">
+      <div className="relative z-10 flex flex-col justify-between bg-[#070C10] text-white w-full lg:w-[28%] shrink-0 px-8 md:px-18 pt-[calc(68px+3.5rem)] pb-14" style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 7rem), calc(100% - 7rem) 100%, 0 100%)" }}>
 
         {/* Headline */}
         <div className="flex-1 flex flex-col justify-center gap-6">

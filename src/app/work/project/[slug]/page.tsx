@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getCaseStudyBySlug, caseStudies } from "@/lib/work-data";
-import CaseStudyDetail from "@/components/work/CaseStudyDetail";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,13 +19,13 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
-export default async function ProjectDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const study = getCaseStudyBySlug(slug);
+// export default async function ProjectDetailPage({ params }: Props) {
+//   const { slug } = await params;
+//   const study = getCaseStudyBySlug(slug);
 
-  if (!study) {
-    notFound();
-  }
+//   if (!study) {
+//     notFound();
+//   }
 
-  return <CaseStudyDetail study={study} />;
-}
+//   return <CaseStudyDetail study={study} />;
+// }
