@@ -17,7 +17,7 @@ const services = [
       "API & Backend Development",
       "AI/ML Solutions",
     ],
-    href: "/services/software-development",
+    href: "/services/development",
   },
   {
     number: "02",

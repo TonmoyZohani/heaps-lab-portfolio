@@ -143,11 +143,11 @@ export default function ContactSection() {
                     Mohammadpur, Dhaka 1207
                   </p>
                   <a
-                    href="tel:+8801956380776"
+                    href="tel:+8801953380776"
                     className="inline-flex items-center gap-1 text-xs text-[#E01F59] font-semibold mt-1 hover:underline"
                   >
                     <Phone className="w-3 h-3" />
-                    +880 1792-52 96 78
+                    +880 1953-38 07 76
                   </a>
                 </div>
               </div>
@@ -246,11 +246,10 @@ export default function ContactSection() {
                       </select>
                     </div>
                   </Field>
-                  <Field label="Project Budget" required>
+                  <Field label="Project Budget">
                     <div className={inputBase}>
                       <DollarSign className="w-4 h-4 text-foreground/30 shrink-0" />
                       <select
-                        required
                         defaultValue=""
                         className="flex-1 bg-transparent outline-none text-foreground/60 cursor-pointer appearance-none"
                       >

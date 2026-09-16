@@ -3,36 +3,36 @@ import Link from "next/link";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 const featuredProjects = [
+ {
+name: "Marexis Italy — Industrial Machinery & Equipment",
+type: "Web Development",
+description:
+"A modern corporate website showcasing industrial machinery, generators, compressors, forklifts, and technical services.",
+image: "/images/work7.png",
+href: "https://marexisitaly.com",
+accentColor: "text-[#E01F59]",
+badgeBg: "bg-[#E01F59]/10 text-[#E01F59]",
+},
   {
-    name: "PX CRM — Customer Relationship Management",
-    type: "Software Development",
-    description:
-      "A modern CRM platform designed to streamline sales pipelines, client communication, and team productivity.",
-    image: "/images/work7.png",
-    href: "#",
-    accentColor: "text-[#E01F59]",
-    badgeBg: "bg-[#E01F59]/10 text-[#E01F59]",
-  },
-  {
-    name: "Hospital Management System (ERP)",
-    type: "Software Development",
-    description:
-      "A complete healthcare management solution with patient records, appointments, billing, and staff management.",
-    image: "/images/work13.png",
-    href: "#",
-    accentColor: "text-[#0EA5E9]",
-    badgeBg: "bg-[#0EA5E9]/10 text-[#0EA5E9]",
-  },
-  {
-    name: "School Management System (ERP)",
-    type: "Software Development",
-    description:
-      "An all-in-one school ERP covering admissions, attendance, results, and communication for modern institutions.",
-    image: "/images/work8.png",
-    href: "#",
-    accentColor: "text-[#E07820]",
-    badgeBg: "bg-[#E07820]/10 text-[#E07820]",
-  },
+name: "Indian Claypit — Indian Restaurant & Catering",
+type: "Web Development",
+description:
+"A modern restaurant website featuring an interactive menu, online ordering, table reservations, promotions, and catering services.",
+image: "/images/work13.png",
+href: "https://www.indianclaypit.com/",
+accentColor: "text-[#E01F59]",
+badgeBg: "bg-[#E01F59]/10 text-[#E01F59]",
+},
+ {
+name: "Sonnet Guru — Online Learning Platform",
+type: "Software Development",
+description:
+"A modern learning platform designed to deliver online courses, manage students, and provide a structured digital learning experience.",
+image: "/images/work8.png",
+href: "https://sonnetguru.com/",
+accentColor: "text-[#E07820]",
+badgeBg: "bg-[#E07820]/10 text-[#E07820]",
+},
 ];
 
 function ProjectCard({
@@ -73,21 +73,14 @@ function ProjectCard({
         </p>
 
         {/* Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-foreground/8 mt-1">
-          <Link
-            href={project.href}
-            className={`inline-flex items-center gap-1.5 text-sm font-semibold ${project.accentColor} hover:gap-2.5 transition-all duration-200`}
-          >
-            View Case Study
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+        <div className="pt-3 border-t border-foreground/8 mt-1">
           <a
             href={project.href}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Open ${project.name}`}
-            className="w-8 h-8 flex items-center justify-center rounded-lg text-foreground/30 hover:text-foreground hover:bg-foreground/5 transition-colors duration-200"
+            className={`inline-flex items-center gap-1.5 text-sm font-semibold ${project.accentColor} hover:gap-2.5 transition-all duration-200`}
           >
+            See Live Site
             <ExternalLink className="w-4 h-4" />
           </a>
         </div>
