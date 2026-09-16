@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 const videos = ["/videos/video1.mp4", "/videos/video2.mp4", "/videos/video3.mp4"];
 
 /* ── Word-by-word reveal animation ──────────────────────────────────── */
-const WORDS = ["Build.", "Launch.", "Market.", "Grow."];
+const WORDS = ["Build.", "Market.", "Grow."];
 const WORD_INTERVAL = 700;   // ms between each word appearing
 const HOLD_DURATION = 300;   // ms to hold the full phrase before reset
 const FADE_DURATION = 200;   // ms for the whole-line fade-out
@@ -93,23 +93,23 @@ export default function HeroSection() {
   }, [currentIndex]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <section className="w-full min-h-[80vh] flex rounded-b-[7rem] overflow-hidden">
+    <section className="w-full min-h-[80vh] flex overflow-hidden">
 
       {/* ── LEFT PANEL ─────────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col justify-between bg-[#070C10] text-white w-full lg:w-[28%] shrink-0 px-8 md:px-18 pt-[calc(68px+3.5rem)] pb-14" style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 7rem), calc(100% - 7rem) 100%, 0 100%)" }}>
+      <div className="relative z-10 flex flex-col justify-between bg-[#070C10] text-white w-full lg:w-[38%] xl:w-[32%] shrink-0 px-8 lg:px-10 xl:px-14 pt-[calc(68px+3rem)] pb-12">
 
         {/* Headline */}
-        <div className="flex-1 flex flex-col justify-center gap-6">
-          <h1 className="text-3xl md:text-4xl xl:text-5xl font-bold leading-tight">
-     From Building Your Business to Marketing Your Brand, We've Got You Covered.
+        <div className="flex-1 flex flex-col justify-center gap-5">
+          <h1 className="text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold leading-tight">
+            From Building Your Business to Marketing Your Brand, We've Got You Covered.
           </h1>
-          <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-sm">
+          <p className="text-sm lg:text-sm xl:text-base text-white/80 leading-relaxed max-w-sm">
             We design and build high-performance digital products — websites, platforms, and campaigns that drive real growth for ambitious brands.
           </p>
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex flex-col sm:flex-row gap-3">
+        <div className="mt-8 flex flex-col sm:flex-row gap-3">
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 bg-[#E01F59] hover:bg-[#b91947] text-white text-sm font-semibold px-6 py-3.5 rounded-full transition-colors duration-200"
