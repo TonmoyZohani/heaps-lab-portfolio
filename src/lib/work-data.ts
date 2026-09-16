@@ -1,4 +1,4 @@
-export type WorkCategory = "All work" | "Software Development" | "3D Animation" | "Digital Solutions";
+export type WorkCategory = "All work" | "Software Development" | "Design" | "Marketing";
 
 export interface Project {
   slug: string;
@@ -36,44 +36,30 @@ export interface CaseStudy {
 
 export const projects: Project[] = [
   {
-    slug: "px-crm",
-    title: "PX CRM — Customer Relationship Management",
-    category: "Software Development",
-    image: "/images/work9.png",
-    url: "#",
-  },
-  {
-    slug: "hospital-management",
-    title: "Hospital Management System (ERP)",
-    category: "Software Development",
-    image: "/images/work10.png",
-    url: "#",
-  },
-  {
-    slug: "school-management",
-    title: "School Management System (ERP)",
+    slug: "tour-management",
+    title: "Tour Flow — Mobile Application",
     category: "Software Development",
     image: "/images/work11.png",
     url: "#",
   },
   {
     slug: "indian-claypit",
-    title: "Indian Claypit",
-    category: "Digital Solutions",
+    title: "Indian Claypit — Restaurant Application",
+    category: "Software Development",
     image: "/images/work14.png",
     url: "https://indianclaypit.com",
   },
   {
     slug: "bag-bank",
     title: "Bag Bank — E-Commerce Platform",
-    category: "Digital Solutions",
+    category: "Software Development",
     image: "/images/work12.png",
     url: "https://bagbank.com",
   },
   {
     slug: "marexis",
     title: "Marexis — Corporate Website",
-    category: "Digital Solutions",
+    category: "Software Development",
     image: "/images/work7.png",
     url: "https://marexis.com",
   },
@@ -85,18 +71,25 @@ export const projects: Project[] = [
     url: "https://sonnetguru.com",
   },
   {
-    slug: "project-dashboard",
-    title: "Project Management Dashboard",
-    category: "Software Development",
-    image: "/images/work13.png",
-    url: "#",
+    slug: "gaming-ecommerce-ui",
+    title: "Gaming E-Commerce — UI Design",
+    category: "Design",
+    image: "/images/work15.png",
+    url: "https://sonnetguru.com",
   },
   {
-    slug: "course-platform",
-    title: "Online Course Platform",
-    category: "Digital Solutions",
-    image: "/images/course_cover.jpeg",
-    url: "#",
+    slug: "lms-platform-ui",
+    title: "LMS Platform — UI Design",
+    category: "Design",
+    image: "/images/work16.webp",
+    url: "https://sonnetguru.com",
+  },
+  {
+    slug: "claypit-marketing",
+    title: "Indian Claypit — Marketing Campaign",
+    category: "Marketing",
+    image: "/images/work14.png",
+    url: "https://indianclaypit.com",
   },
 ];
 
@@ -209,8 +202,8 @@ export const caseStudies: CaseStudy[] = [
 export const workCategories: WorkCategory[] = [
   "All work",
   "Software Development",
-  "3D Animation",
-  "Digital Solutions",
+  "Design",
+  "Marketing",
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

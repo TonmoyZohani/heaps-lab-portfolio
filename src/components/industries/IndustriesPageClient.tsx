@@ -23,7 +23,7 @@ function IndustryCard({ industry }: { industry: (typeof industries)[number] }) {
       </p>
 
       {/* Services tags */}
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2">
         {industry.services.map((s) => (
           <span
             key={s}
@@ -33,15 +33,6 @@ function IndustryCard({ industry }: { industry: (typeof industries)[number] }) {
           </span>
         ))}
       </div>
-
-      {/* CTA */}
-      <Link
-        href={industry.caseStudyHref}
-        className="inline-flex items-center gap-2 text-sm font-semibold text-[#E01F59] hover:text-[#b91947] transition-colors duration-200 group/link"
-      >
-        See case studies
-        <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
-      </Link>
     </div>
   );
 }

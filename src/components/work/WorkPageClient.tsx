@@ -88,7 +88,7 @@ export default function WorkPageClient() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200 ${
+              className={`px-5 py-2 rounded-full text-sm font-semibold border cursor-pointer transition-all duration-200 ${
                 activeCategory === cat
                   ? "bg-[#E01F59] border-[#E01F59] text-white"
                   : "bg-transparent border-foreground/20 text-foreground/60 hover:border-foreground/50 hover:text-foreground"
